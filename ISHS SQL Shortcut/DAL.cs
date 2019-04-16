@@ -9,8 +9,8 @@ namespace ISHS_SQL_Shortcut
 {
     class DAL
     {
-        private static string ReadOnlyConnectionString = "mssql.cs.iri.isu.edu;Database=CS4488_Fall2018_Prod;User Id=;Password=;";
-        private static string EditOnlyConnectionString = "mssql.cs.iri.isu.edu;Database=CS4488_Fall2018_Prod;User Id=;Password=;";
+        private static string ReadOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_reader;Password=9f#l1N4MDuE)";
+        private static string EditOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_editor;Password=$s!kFB_e#ad6V";
 
         private DAL()
         {
@@ -18,9 +18,10 @@ namespace ISHS_SQL_Shortcut
 
         #region Media
 
-        public static void MediaAdd(int SpecimenID, string FileName, string Extension, 
-            string MimeType, int MediaDataID, int ThumbnailDataID, int Height, int Width, string AltText)
+        public static int MediaAdd(int SpecimenID, string FileName, string Extension, 
+            string MimeType, int MediaDataID, int ThumbnailDataID, int Height, int Width, string AltText, bool IsSpecimenShowcaseMedia)
         {
+            int retInt = -1;
 
             SqlCommand comm = new SqlCommand();
             try
@@ -35,12 +36,25 @@ namespace ISHS_SQL_Shortcut
                 comm.Parameters.AddWithValue("@Height", Height);
                 comm.Parameters.AddWithValue("@Width", Width);
                 comm.Parameters.AddWithValue("@AltText", AltText);
+                comm.Parameters.AddWithValue("@IsSpecimenShowcaseMedia", IsSpecimenShowcaseMedia);
+
+                SqlParameter retParameter;
+                retParameter = new SqlParameter("@MediaID", System.Data.SqlDbType.Int);
+                retParameter.Direction = System.Data.ParameterDirection.Output;
+                comm.Parameters.Add(retParameter);
 
                 comm.Connection = new SqlConnection(EditOnlyConnectionString);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Connection.Open();
 
                 int rowsAffected = comm.ExecuteNonQuery();
+                if (rowsAffected != 1)
+                {
+                    //There was a problem
+                    retInt = -1;
+                }
+                else
+                    retInt = (int)retParameter.Value;
             }
             catch (Exception ex)
             {
@@ -52,13 +66,13 @@ namespace ISHS_SQL_Shortcut
                 if (comm.Connection != null)
                     comm.Connection.Close();
             }
-
+            return retInt;
         }
         #endregion
 
         #region MediaDate
 
-        public static int MediaDataAdd(int MediaDataID, string Data)
+        public static int MediaDataAdd(int MediaDataID, byte[] Data)
         {
             int retInt = -1;
 
@@ -69,7 +83,7 @@ namespace ISHS_SQL_Shortcut
                 comm.Parameters.AddWithValue("@Data", Data);
 
                 SqlParameter retParameter;
-                retParameter = new SqlParameter("@MediaDataID", System.Data.SqlDbType.Int);
+                retParameter = new SqlParameter("@MediaDateID", System.Data.SqlDbType.Int);
                 retParameter.Direction = System.Data.ParameterDirection.Output;
                 comm.Parameters.Add(retParameter);
 
@@ -105,7 +119,7 @@ namespace ISHS_SQL_Shortcut
 
         #region Tile
 
-        public static void TileAdd(int SpecimenID, int MediaID, int Level, int Column, int Row, string Image)
+        public static void TileAdd(int SpecimenID, int MediaID, int Level, int Column, int Row, byte[] Image)
         {
             SqlCommand comm = new SqlCommand();
             try
@@ -117,11 +131,6 @@ namespace ISHS_SQL_Shortcut
                 comm.Parameters.AddWithValue("@Column", Column);
                 comm.Parameters.AddWithValue("@Row", Row);
                 comm.Parameters.AddWithValue("@Image", Image);
-
-                SqlParameter retParameter;
-                retParameter = new SqlParameter("@ID", System.Data.SqlDbType.Int);
-                retParameter.Direction = System.Data.ParameterDirection.Output;
-                comm.Parameters.Add(retParameter);
 
                 comm.Connection = new SqlConnection(EditOnlyConnectionString);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
@@ -149,7 +158,7 @@ namespace ISHS_SQL_Shortcut
         #region Specimen
 
         public static int SpecimenAdd(int SpecimenID, string AccessionNumber, int CategoryID, int SubCategoryID,
-            string Circa, int MaterialID, int SecondaryMaterial, int CollectionID, int RediscovRecordID, bool IsOnExhibit)
+            string Circa, int CollectionID, bool IsOnExhibit)
         {
             int retInt = -1;
 
@@ -161,10 +170,10 @@ namespace ISHS_SQL_Shortcut
                 comm.Parameters.AddWithValue("@CategoryID", CategoryID);
                 comm.Parameters.AddWithValue("@SubCategoryID", SubCategoryID);
                 comm.Parameters.AddWithValue("@Circa", Circa);
-                comm.Parameters.AddWithValue("@MaterialID", MaterialID);
-                comm.Parameters.AddWithValue("@SecondaryMatericalID", SecondaryMaterial);
+                comm.Parameters.AddWithValue("@MaterialID", DBNull.Value);
+                comm.Parameters.AddWithValue("@SecondaryMaterialID", DBNull.Value);
                 comm.Parameters.AddWithValue("@CollectionID", CollectionID);
-                comm.Parameters.AddWithValue("@RediscovRecordID", RediscovRecordID);
+                comm.Parameters.AddWithValue("@RediscovRecordID", DBNull.Value);
                 comm.Parameters.AddWithValue("@IsOnExhibit", IsOnExhibit);
 
                 SqlParameter retParameter;

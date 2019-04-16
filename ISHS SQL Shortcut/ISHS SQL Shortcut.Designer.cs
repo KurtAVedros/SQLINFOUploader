@@ -48,18 +48,14 @@
             this.tbxSecondMaterial = new System.Windows.Forms.TextBox();
             this.tbxCollection = new System.Windows.Forms.TextBox();
             this.tbxIsOnExibit = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbxMediaFilePath = new System.Windows.Forms.TextBox();
             this.tbxMediaName = new System.Windows.Forms.TextBox();
             this.tbxMediaFileEnding = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.tbxThumbnailFilePath = new System.Windows.Forms.TextBox();
             this.tbxThumbnailName = new System.Windows.Forms.TextBox();
             this.tbxThumbnailFileEnding = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -247,15 +243,6 @@
             this.tbxIsOnExibit.Size = new System.Drawing.Size(100, 22);
             this.tbxIsOnExibit.TabIndex = 9;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(38, 320);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 17);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Media File Path";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -273,13 +260,6 @@
             this.label14.Size = new System.Drawing.Size(120, 17);
             this.label14.TabIndex = 32;
             this.label14.Text = "Media File Ending";
-            // 
-            // tbxMediaFilePath
-            // 
-            this.tbxMediaFilePath.Location = new System.Drawing.Point(169, 320);
-            this.tbxMediaFilePath.Name = "tbxMediaFilePath";
-            this.tbxMediaFilePath.Size = new System.Drawing.Size(260, 22);
-            this.tbxMediaFilePath.TabIndex = 33;
             // 
             // tbxMediaName
             // 
@@ -315,15 +295,6 @@
             this.label17.TabIndex = 40;
             this.label17.Text = "STEP 4: Add ThumbnailData";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(39, 440);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(133, 17);
-            this.label18.TabIndex = 41;
-            this.label18.Text = "Thumbnail File Path";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -341,13 +312,6 @@
             this.label20.Size = new System.Drawing.Size(148, 17);
             this.label20.TabIndex = 43;
             this.label20.Text = "Thumbnail File Ending";
-            // 
-            // tbxThumbnailFilePath
-            // 
-            this.tbxThumbnailFilePath.Location = new System.Drawing.Point(171, 440);
-            this.tbxThumbnailFilePath.Name = "tbxThumbnailFilePath";
-            this.tbxThumbnailFilePath.Size = new System.Drawing.Size(260, 22);
-            this.tbxThumbnailFilePath.TabIndex = 45;
             // 
             // tbxThumbnailName
             // 
@@ -550,18 +514,14 @@
             this.Controls.Add(this.label21);
             this.Controls.Add(this.tbxThumbnailFileEnding);
             this.Controls.Add(this.tbxThumbnailName);
-            this.Controls.Add(this.tbxThumbnailFilePath);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.tbxMediaFileEnding);
             this.Controls.Add(this.tbxMediaName);
-            this.Controls.Add(this.tbxMediaFilePath);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.tbxIsOnExibit);
             this.Controls.Add(this.tbxCollection);
             this.Controls.Add(this.tbxSecondMaterial);
@@ -612,18 +572,14 @@
         private System.Windows.Forms.TextBox tbxSecondMaterial;
         private System.Windows.Forms.TextBox tbxCollection;
         private System.Windows.Forms.TextBox tbxIsOnExibit;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbxMediaFilePath;
         private System.Windows.Forms.TextBox tbxMediaName;
         private System.Windows.Forms.TextBox tbxMediaFileEnding;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox tbxThumbnailFilePath;
         private System.Windows.Forms.TextBox tbxThumbnailName;
         private System.Windows.Forms.TextBox tbxThumbnailFileEnding;
         private System.Windows.Forms.Label label21;

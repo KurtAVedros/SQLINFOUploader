@@ -25,15 +25,16 @@ namespace ISHS_SQL_Shortcut
 
         // variables for step 1
         string AccessionNumber = "NULL";
-        string CategoryID = "0";
-        string SubCategoryID = "0";
+        string CategoryID = "NULL";
+        string SubCategoryID = "NULL";
         string Circa = "0";
         string MaterialID = "NULL";
         string SecondaryMaterialID = "NULL";
         int CollectionID = 0;
         string RediscovRecordID = "NULL";
-        int IsOnExhibit = 0;
+        bool IsOnExhibit = false;
         int SpecimenID = 0;
+        byte[] data = null;
 
         // variables for step 2
         string MediaFilePath = "";
@@ -52,7 +53,7 @@ namespace ISHS_SQL_Shortcut
         int ImageHeight = 0;
         int ImageWidth = 0;
         string Description = "";
-        int IsSpecimenShowcaseMedia = 0;
+        bool IsSpecimenShowcaseMedia = false;
         int MediaID = 0;
 
         // variables for step 7
@@ -102,13 +103,16 @@ namespace ISHS_SQL_Shortcut
             fillInformation();
 
             SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), int.Parse(SubCategoryID), Circa,
-                int.Parse(MaterialID), int.Parse(SecondaryMaterialID), CollectionID, int.Parse(RediscovRecordID), bool.Parse(IsOnExhibit.ToString()));
+                CollectionID, IsOnExhibit);
             tbxSetSpecimenID.Text = SpecimenID.ToString();
             string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
-            MediaDataID = DAL.MediaDataAdd(0, DataMedia);
+            data = System.IO.File.ReadAllBytes(DataMedia);
+            MediaDataID = DAL.MediaDataAdd(0, data);
             string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
-            ThumbnailDataID = DAL.MediaDataAdd(0, DataThumbnail);
-            DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, Height, Width, Description);
+            data = System.IO.File.ReadAllBytes(DataThumbnail);
+            ThumbnailDataID = DAL.MediaDataAdd(0, data);
+            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
+
             fillInformationForImageTileData();
             cycleThroughImagePathAddingImages();
         }
@@ -130,10 +134,12 @@ namespace ISHS_SQL_Shortcut
             fillInformationWithSetSpecimen();
 
             string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
-            MediaDataID = DAL.MediaDataAdd(0, DataMedia);
+            data = System.IO.File.ReadAllBytes(DataMedia);
+            MediaDataID = DAL.MediaDataAdd(0, data);
             string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
-            ThumbnailDataID = DAL.MediaDataAdd(0, DataThumbnail);
-            DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, Height, Width, Description);
+            data = System.IO.File.ReadAllBytes(DataThumbnail);
+            ThumbnailDataID = DAL.MediaDataAdd(0, data);
+            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, Height, Width, Description, IsSpecimenShowcaseMedia);
 
             fillInformationForImageTileData();
             cycleThroughImagePathAddingImages();
@@ -196,7 +202,8 @@ namespace ISHS_SQL_Shortcut
                                 image = TileFilePath + "\\" + level + "\\" + column + "_" + row + "." + TileFileEnding;
                                 if (File.Exists(image))
                                 {
-                                    DAL.TileAdd(SpecimenID, MediaID, level, column, row, image);
+                                    data = System.IO.File.ReadAllBytes(image);
+                                    DAL.TileAdd(SpecimenID, MediaID, level, column, row, data);
                                     row++;
                                 }
                                 else
@@ -325,10 +332,7 @@ namespace ISHS_SQL_Shortcut
         private void fillInformation()
         {
             // for Specimen
-            if (tbxAccessionNum.Text.ToLower() == "null")
-            { AccessionNumber = tbxAccessionNum.Text; }
-            else
-            { AccessionNumber = "'" + tbxAccessionNum.Text + "'"; }
+            AccessionNumber = tbxAccessionNum.Text;
             setCategory();
             setSubCategory();
             Circa = "'" + tbxCirca.Text + "'";
@@ -340,13 +344,13 @@ namespace ISHS_SQL_Shortcut
             //SpecimenID = int.Parse(tbxSpecimenID.Text);
 
             // for MediaData
-            MediaFilePath = tbxMediaFilePath.Text;
+            MediaFilePath = "E:\\ISHS Data Spec Pics";
             MediaFileName = tbxMediaName.Text;
             MediaFileEnding = tbxMediaFileEnding.Text;
             //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
 
             // for ThumbnailData
-            ThumbnailFilePath = tbxThumbnailFilePath.Text;
+            ThumbnailFilePath = "E:\\ISHS Data Spec Thumbnails";
             ThumbnailFileName = tbxThumbnailName.Text;
             ThumbnailFileEnding = tbxThumbnailFileEnding.Text;
             //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
@@ -366,13 +370,13 @@ namespace ISHS_SQL_Shortcut
             SpecimenID = int.Parse(tbxSetSpecimenID.Text);
 
             // for MediaData
-            MediaFilePath = tbxMediaFilePath.Text;
+            MediaFilePath = "E:\\ISHS Data Spec Pics";
             MediaFileName = tbxMediaName.Text;
             MediaFileEnding = tbxMediaFileEnding.Text;
             //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
 
             // for ThumbnailData
-            ThumbnailFilePath = tbxThumbnailFilePath.Text;
+            ThumbnailFilePath = "E:\\ISHS Data Spec Thumbnails";
             ThumbnailFileName = tbxThumbnailName.Text;
             ThumbnailFileEnding = tbxThumbnailFileEnding.Text;
             //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
@@ -419,29 +423,29 @@ namespace ISHS_SQL_Shortcut
         private void setIsSpecimenShowcasingImage()
         {
             if (tbxIsSpecimenShowcasing.Text.ToLower() == "no")
-            { IsSpecimenShowcaseMedia = 0; }
+            { IsSpecimenShowcaseMedia = false; }
             else if (tbxIsSpecimenShowcasing.Text.ToLower() == "0")
-            { IsSpecimenShowcaseMedia = 0; }
+            { IsSpecimenShowcaseMedia = false; }
             else if (tbxIsSpecimenShowcasing.Text.ToLower() == "yes")
-            { IsSpecimenShowcaseMedia = 1; }
+            { IsSpecimenShowcaseMedia = true; }
             else if (tbxIsSpecimenShowcasing.Text.ToLower() == "1")
-            { IsSpecimenShowcaseMedia = 1; }
+            { IsSpecimenShowcaseMedia = true; }
             else
-            { IsSpecimenShowcaseMedia = 0; }
+            { IsSpecimenShowcaseMedia = false; }
         }
 
         private void setIsOnExhibit()
         {
             if ( tbxIsOnExibit.Text.ToLower() == "no")
-            { IsOnExhibit = 0; }
+            { IsOnExhibit = false; }
             else if (tbxIsOnExibit.Text.ToLower() == "0")
-            { IsOnExhibit = 0; }
+            { IsOnExhibit = false; }
             else if (tbxIsOnExibit.Text.ToLower() == "yes")
-            { IsOnExhibit = 1; }
+            { IsOnExhibit = true; }
             else if (tbxIsOnExibit.Text.ToLower() == "1")
-            { IsOnExhibit = 1; }
+            { IsOnExhibit = true; }
             else
-            { IsOnExhibit = 0; }
+            { IsOnExhibit = false; }
         }
 
         private void setCollection()
@@ -485,6 +489,8 @@ namespace ISHS_SQL_Shortcut
             else if (tbxCollection.Text == "Currentlyon Exhibit")
             { CollectionID = 20; }
             else if (tbxCollection.Text.ToLower() == "unassigned")
+            { CollectionID = 21; }
+            else if (tbxCollection.Text.ToLower() == "un")
             { CollectionID = 21; }
             else
             { tbxCollection.Text = "ERROR"; }
