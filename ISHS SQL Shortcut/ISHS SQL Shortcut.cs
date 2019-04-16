@@ -139,7 +139,7 @@ namespace ISHS_SQL_Shortcut
             string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
             data = System.IO.File.ReadAllBytes(DataThumbnail);
             ThumbnailDataID = DAL.MediaDataAdd(0, data);
-            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, Height, Width, Description, IsSpecimenShowcaseMedia);
+            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
 
             fillInformationForImageTileData();
             cycleThroughImagePathAddingImages();
