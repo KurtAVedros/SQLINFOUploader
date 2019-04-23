@@ -39,17 +39,17 @@ namespace ISHS_SQL_Shortcut
         // variables for step 2
         string MediaFilePath = "";
         string MediaFileName = "";
-        string MediaFileEnding = "";
+        string MediaFileEnding = "jpg";
         int MediaDataID = 0;
 
         // variables for step 4
         string ThumbnailFilePath = "";
         string ThumbnailFileName = "";
-        string ThumbnailFileEnding = "";
+        string ThumbnailFileEnding = "jpg";
         int ThumbnailDataID = 0;
 
         // variables for step 5
-        string MimeType = "";
+        string MimeType = "image/jpeg";
         int ImageHeight = 0;
         int ImageWidth = 0;
         string Description = "";
@@ -59,16 +59,16 @@ namespace ISHS_SQL_Shortcut
         // variables for step 7
         string TileFilePath = "";
         string TileFileName = "";
-        string TileFileEnding = "";
+        string TileFileEnding = "jpg";
 
-        int CurrentSetTileFileID = 0;
+        //int CurrentSetTileFileID = 0;
         int ImageTileDataID = 0;
 
         // variables for step 8
         int Level = 0;
         int Column = 0;
         int Row = 0;
-        int Step8CurrentSetTileFileID = 0;
+        //int Step8CurrentSetTileFileID = 0;
         int Step8ImageTileDataID = 0;
 
         public Form1()
@@ -85,64 +85,40 @@ namespace ISHS_SQL_Shortcut
 
         private void btnNewSpecimen_Click(object sender, EventArgs e)
         {
-            /*  OLD CODE
-            TempStep7indicator = 0;
-            TempStep8indicator = 0;
-            fillInformation();
-
-            SQLText.Clear();
-            SQLText.Text = SQLCreateNewSpeciment();
-            SQLText.Text += SQLCreateNewMediaData();
-            SQLText.Text += SQLStep3Reminder();
-            SQLText.Text += SQLCreateNewThumbnailData();
-            SQLText.Text += SQLCreateNewMedia();
-            SQLText.Text += SQLStep6Reminder();
-
-            tbxSetSpecimenID.Text = SpecimenID.ToString();
-            */
-            fillInformation();
-
-            SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), int.Parse(SubCategoryID), Circa,
-                CollectionID, IsOnExhibit);
-            tbxSetSpecimenID.Text = SpecimenID.ToString();
-            string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
-            data = System.IO.File.ReadAllBytes(DataMedia);
-            MediaDataID = DAL.MediaDataAdd(0, data);
-            string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
-            data = System.IO.File.ReadAllBytes(DataThumbnail);
-            ThumbnailDataID = DAL.MediaDataAdd(0, data);
-            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
-
-            fillInformationForImageTileData();
-            cycleThroughImagePathAddingImages();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /*
-            TempStep7indicator = 0;
-            TempStep8indicator = 0;
-            fillInformationWithSetSpecimen();
-
-            SQLText.Clear();
-            SQLText.Text += SQLCreateNewMediaData();
-            SQLText.Text += SQLStep3Reminder();
-            SQLText.Text += SQLCreateNewThumbnailData();
-            SQLText.Text += SQLCreateNewMedia();
-            SQLText.Text += SQLStep6Reminder();
-            */
-            fillInformationWithSetSpecimen();
-
-            string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
-            data = System.IO.File.ReadAllBytes(DataMedia);
-            MediaDataID = DAL.MediaDataAdd(0, data);
-            string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
-            data = System.IO.File.ReadAllBytes(DataThumbnail);
-            ThumbnailDataID = DAL.MediaDataAdd(0, data);
-            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
-
-            fillInformationForImageTileData();
-            cycleThroughImagePathAddingImages();
+            
+            if(cbxBase.Checked == true)
+            {
+                fillInformationBase();
+                addToDatabaseCycleBase();
+            } 
+            if(cbxOne.Checked == true)
+            {
+                fillInformationOne();
+                addToDatabaseCycleAdditional();
+            }
+            if(cbxTwo.Checked == true)
+            {
+                fillInformationTwo();
+                addToDatabaseCycleAdditional();
+            }
+            if(cbxThree.Checked == true)
+            {
+                fillInformationThree();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxFour.Checked == true)
+            {
+                fillInformationFour();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxFive.Checked == true)
+            {
+                fillInformationFive();
+                addToDatabaseCycleAdditional();
+            }
+            rtbInformation.Text += SpecimenID + " has been added.\n";
+            clearText();
+            resetCheckBoxs();
         }
 
         private void cycleThroughImagePathAddingImages()
@@ -220,7 +196,7 @@ namespace ISHS_SQL_Shortcut
 
 
         //----------------------------------------SQL Code fill------------------------------------------------------
-
+        /*
         private string SQLCreateNewSpeciment()
         {
             string ans = "-- STEP 1 ADD NEW SPECIMEN\n";
@@ -326,10 +302,11 @@ namespace ISHS_SQL_Shortcut
             Step8setNextImageTileDataID();
 
             return ans;
+            
         }
-
+        */
         //----------------------------------------Infromation Fill------------------------------------------------------
-        private void fillInformation()
+        private void fillInformationBase()
         {
             // for Specimen
             AccessionNumber = tbxAccessionNum.Text;
@@ -344,67 +321,193 @@ namespace ISHS_SQL_Shortcut
             //SpecimenID = int.Parse(tbxSpecimenID.Text);
 
             // for MediaData
-            MediaFilePath = "E:\\ISHS Data Spec Pics";
+            MediaFilePath = tbxMediaPath.Text;
             MediaFileName = tbxMediaName.Text;
-            MediaFileEnding = tbxMediaFileEnding.Text;
+            //  MediaFileEnding = "jpg";
             //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
 
             // for ThumbnailData
-            ThumbnailFilePath = "E:\\ISHS Data Spec Thumbnails";
-            ThumbnailFileName = tbxThumbnailName.Text;
-            ThumbnailFileEnding = tbxThumbnailFileEnding.Text;
+            ThumbnailFilePath = tbxThumPath.Text;
+            ThumbnailFileName = tbxMediaName.Text;
+            //  ThumbnailFileEnding = "jpg";
             //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
 
             // for Media
-            MimeType = tbxMimeType.Text;
+            //  MimeType = "image/jpeg";
             ImageHeight = int.Parse(tbxHeight.Text);
             ImageWidth = int.Parse(tbxWidth.Text);
             Description = tbxDescription.Text;
-            setIsSpecimenShowcasingImage();
+            IsSpecimenShowcaseMedia = true;
             //MediaID = int.Parse(tbxNextMediaID.Text);
-        }
 
-        private void fillInformationWithSetSpecimen()
-        {
-            // for Specimen
-            SpecimenID = int.Parse(tbxSetSpecimenID.Text);
-
-            // for MediaData
-            MediaFilePath = "E:\\ISHS Data Spec Pics";
-            MediaFileName = tbxMediaName.Text;
-            MediaFileEnding = tbxMediaFileEnding.Text;
-            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
-
-            // for ThumbnailData
-            ThumbnailFilePath = "E:\\ISHS Data Spec Thumbnails";
-            ThumbnailFileName = tbxThumbnailName.Text;
-            ThumbnailFileEnding = tbxThumbnailFileEnding.Text;
-            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
-
-            // for Media
-            MimeType = tbxMimeType.Text;
-            ImageHeight = int.Parse(tbxHeight.Text);
-            ImageWidth = int.Parse(tbxWidth.Text);
-            Description = tbxDescription.Text;
-            setIsSpecimenShowcasingImage();
-            //MediaID = int.Parse(tbxNextMediaID.Text);
-        }
-
-        private void fillInformationForImageTileData()
-        {
             TileFilePath = tbxTileFilePath.Text;
             //TileFileName = tbxTileName.Text;
-            TileFileEnding = tbxTileFileEnding.Text;
+            //  TileFileEnding = "jpg";
         }
 
-        /* no longer used
-        private void fillInformationForImageTile()
+        private void fillInformationOne()
         {
-            Level = int.Parse(tbxLevel.Text);
-            Column = int.Parse(tbxColumn.Text);
-            Row = int.Parse(tbxRow.Text);
+            // for MediaData
+            //MediaFilePath = tbxMediaPath1.Text;
+            MediaFileName = tbxMediaName1.Text;
+            //  MediaFileEnding = "jpg";
+            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
+
+            // for ThumbnailData
+            //ThumbnailFilePath = tbxThumPath1.Text;
+            ThumbnailFileName = tbxMediaName1.Text;
+            //  ThumbnailFileEnding = "jpg";
+            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
+
+            // for Media
+            //  MimeType = "image/jpeg";
+            ImageHeight = int.Parse(tbxHeight1.Text);
+            ImageWidth = int.Parse(tbxWidth1.Text);
+            Description = tbxDescription1.Text;
+            IsSpecimenShowcaseMedia = false;
+            //MediaID = int.Parse(tbxNextMediaID.Text);
+
+            TileFilePath = tbxTileFilePath1.Text;
+            //TileFileName = tbxTileName.Text;
+            //  TileFileEnding = "jpg";
         }
-        */
+
+        private void fillInformationTwo()
+        {
+            // for MediaData
+            //MediaFilePath = tbxMediaPath2.Text;
+            MediaFileName = tbxMediaName2.Text;
+            //  MediaFileEnding = "jpg";
+            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
+
+            // for ThumbnailData
+            //ThumbnailFilePath = tbxThumPath2.Text;
+            ThumbnailFileName = tbxMediaName2.Text;
+            //  ThumbnailFileEnding = "jpg";
+            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 2;
+
+            // for Media
+            //  MimeType = "image/jpeg";
+            ImageHeight = int.Parse(tbxHeight2.Text);
+            ImageWidth = int.Parse(tbxWidth2.Text);
+            Description = tbxDescription2.Text;
+            IsSpecimenShowcaseMedia = false;
+            //MediaID = int.Parse(tbxNextMediaID.Text);
+
+            TileFilePath = tbxTileFilePath2.Text;
+            //TileFileName = tbxTileName.Text;
+            //  TileFileEnding = "jpg";
+        }
+
+        private void fillInformationThree()
+        {
+            // for MediaData
+            //MediaFilePath = tbxMediaPath3.Text;
+            MediaFileName = tbxMediaName3.Text;
+            //  MediaFileEnding = "jpg";
+            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
+
+            // for ThumbnailData
+            //ThumbnailFilePath = tbxThumPath3.Text;
+            ThumbnailFileName = tbxMediaName3.Text;
+            //  ThumbnailFileEnding = "jpg";
+            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 3;
+
+            // for Media
+            //  MimeType = "image/jpeg";
+            ImageHeight = int.Parse(tbxHeight3.Text);
+            ImageWidth = int.Parse(tbxWidth3.Text);
+            Description = tbxDescription3.Text;
+            IsSpecimenShowcaseMedia = false;
+            //MediaID = int.Parse(tbxNextMediaID.Text);
+
+            TileFilePath = tbxTileFilePath3.Text;
+            //TileFileName = tbxTileName.Text;
+            //  TileFileEnding = "jpg";
+        }
+
+        private void fillInformationFour()
+        {
+            // for MediaData
+            // MediaFilePath = tbxMediaPath4.Text;
+            MediaFileName = tbxMediaName4.Text;
+            //  MediaFileEnding = "jpg";
+            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
+
+            // for ThumbnailData
+            // ThumbnailFilePath = tbxThumPath4.Text;
+            ThumbnailFileName = tbxMediaName4.Text;
+            //  ThumbnailFileEnding = "jpg";
+            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 4;
+
+            // for Media
+            //  MimeType = "image/jpeg";
+            ImageHeight = int.Parse(tbxHeight4.Text);
+            ImageWidth = int.Parse(tbxWidth4.Text);
+            Description = tbxDescription4.Text;
+            IsSpecimenShowcaseMedia = false;
+            //MediaID = int.Parse(tbxNextMediaID.Text);
+
+            TileFilePath = tbxTileFilePath4.Text;
+            //TileFileName = tbxTileName.Text;
+            //  TileFileEnding = "jpg";
+        }
+
+        private void fillInformationFive()
+        {
+            // for MediaData
+            // MediaFilePath = tbxMediaPath5.Text;
+            MediaFileName = tbxMediaName5.Text;
+            //  MediaFileEnding = "jpg";
+            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
+
+            // for ThumbnailData
+            // ThumbnailFilePath = tbxThumPath5.Text;
+            ThumbnailFileName = tbxMediaName5.Text;
+            //  ThumbnailFileEnding = "jpg";
+            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 5;
+
+            // for Media
+            //  MimeType = "image/jpeg";
+            ImageHeight = int.Parse(tbxHeight5.Text);
+            ImageWidth = int.Parse(tbxWidth5.Text);
+            Description = tbxDescription5.Text;
+            IsSpecimenShowcaseMedia = false;
+            //MediaID = int.Parse(tbxNextMediaID.Text);
+
+            TileFilePath = tbxTileFilePath5.Text;
+            //TileFileName = tbxTileName.Text;
+            //  TileFileEnding = "jpg";
+        }
+
+        // Cycles for adding information into the database
+        private void addToDatabaseCycleBase()
+        {
+            SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), int.Parse(SubCategoryID), Circa,
+                CollectionID, IsOnExhibit);
+            string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
+            data = System.IO.File.ReadAllBytes(DataMedia);
+            MediaDataID = DAL.MediaDataAdd(0, data);
+            string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
+            data = System.IO.File.ReadAllBytes(DataThumbnail);
+            ThumbnailDataID = DAL.MediaDataAdd(0, data);
+            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
+
+            cycleThroughImagePathAddingImages();
+        }
+
+        private void addToDatabaseCycleAdditional()
+        {
+            string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
+            data = System.IO.File.ReadAllBytes(DataMedia);
+            MediaDataID = DAL.MediaDataAdd(0, data);
+            string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
+            data = System.IO.File.ReadAllBytes(DataThumbnail);
+            ThumbnailDataID = DAL.MediaDataAdd(0, data);
+            MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
+
+            cycleThroughImagePathAddingImages();
+        }
 
 
         //----------------------------------------Other Methods------------------------------------------------------
@@ -420,18 +523,62 @@ namespace ISHS_SQL_Shortcut
             //tbxStep8SetImageTileDataID.Text = Step8ImageTileDataID.ToString();
         }
 
-        private void setIsSpecimenShowcasingImage()
+        private void clearText()
         {
-            if (tbxIsSpecimenShowcasing.Text.ToLower() == "no")
-            { IsSpecimenShowcaseMedia = false; }
-            else if (tbxIsSpecimenShowcasing.Text.ToLower() == "0")
-            { IsSpecimenShowcaseMedia = false; }
-            else if (tbxIsSpecimenShowcasing.Text.ToLower() == "yes")
-            { IsSpecimenShowcaseMedia = true; }
-            else if (tbxIsSpecimenShowcasing.Text.ToLower() == "1")
-            { IsSpecimenShowcaseMedia = true; }
-            else
-            { IsSpecimenShowcaseMedia = false; }
+            tbxAccessionNum.Clear();
+            tbxCirca.Clear();
+            tbxCollection.Clear();
+            tbxCategory.Clear();
+            tbxSubCategory.Clear();
+            tbxRediscovRecordID.Clear();
+
+            tbxHeight.Clear();
+            tbxHeight1.Clear();
+            tbxHeight2.Clear();
+            tbxHeight3.Clear();
+            tbxHeight4.Clear();
+            tbxHeight5.Clear();
+
+            tbxWidth.Clear();
+            tbxWidth1.Clear();
+            tbxWidth2.Clear();
+            tbxWidth3.Clear();
+            tbxWidth4.Clear();
+            tbxWidth5.Clear();
+
+            tbxDescription.Clear();
+            tbxDescription1.Clear();
+            tbxDescription2.Clear();
+            tbxDescription3.Clear();
+            tbxDescription4.Clear();
+            tbxDescription5.Clear();
+
+            tbxMediaPath.Clear();
+
+            tbxThumPath.Clear();
+
+            tbxTileFilePath.Clear();
+            tbxTileFilePath1.Clear();
+            tbxTileFilePath2.Clear();
+            tbxTileFilePath3.Clear();
+            tbxTileFilePath4.Clear();
+            tbxTileFilePath5.Clear();
+        }
+
+        private void resetCheckBoxs()
+        {
+            if (cbxBase.Checked == true)
+                cbxBase.Checked = false;
+            if (cbxOne.Checked == true)
+                cbxOne.Checked = false;
+            if (cbxTwo.Checked == true)
+                cbxTwo.Checked = false;
+            if (cbxThree.Checked == true)
+                cbxThree.Checked = false;
+            if (cbxFour.Checked == true)
+                cbxFour.Checked = false;
+            if (cbxFive.Checked == true)
+                cbxFive.Checked = false;
         }
 
         private void setIsOnExhibit()
@@ -614,6 +761,126 @@ namespace ISHS_SQL_Shortcut
             { SubCategoryID = "NULL"; }
             else
             { tbxSubCategory.Text = "ERROR"; }
+        }
+
+        private void cbxBase_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxBase.Checked == false)
+            {
+                if (cbxOne.Checked == true)
+                    cbxOne.Checked = false;
+                if (cbxTwo.Checked == true)
+                    cbxTwo.Checked = false;
+                if (cbxThree.Checked == true)
+                    cbxThree.Checked = false;
+                if (cbxFour.Checked == true)
+                    cbxFour.Checked = false;
+                if (cbxFive.Checked == true)
+                    cbxFive.Checked = false;
+            }
+        }
+
+        private void cbxOne_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxOne.Checked == false)
+            {
+                if (cbxTwo.Checked == true)
+                    cbxTwo.Checked = false;
+                if (cbxThree.Checked == true)
+                    cbxThree.Checked = false;
+                if (cbxFour.Checked == true)
+                    cbxFour.Checked = false;
+                if (cbxFive.Checked == true)
+                    cbxFive.Checked = false;
+            }
+            else if (cbxOne.Checked == true)
+            {
+                if (cbxBase.Checked == false)
+                    cbxBase.Checked = true;
+            }
+        }
+
+        private void cbxTwo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxTwo.Checked == false)
+            {
+                if (cbxThree.Checked == true)
+                    cbxThree.Checked = false;
+                if (cbxFour.Checked == true)
+                    cbxFour.Checked = false;
+                if (cbxFive.Checked == true)
+                    cbxFive.Checked = false;
+            }
+            else if (cbxTwo.Checked == true)
+            {
+                if (cbxBase.Checked == false)
+                    cbxBase.Checked = true;
+                if (cbxOne.Checked == false)
+                    cbxOne.Checked = true;
+                if (cbxThree.Checked == true)
+                    cbxThree.Checked = false;
+                if (cbxFour.Checked == true)
+                    cbxFour.Checked = false;
+                if (cbxFive.Checked == true)
+                    cbxFive.Checked = false;
+            }
+        }
+
+        private void cbxThree_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxThree.Checked == false)
+            {
+                if (cbxFour.Checked == true)
+                    cbxFour.Checked = false;
+                if (cbxFive.Checked == true)
+                    cbxFive.Checked = false;
+            }
+            else if (cbxThree.Checked == true)
+            {
+                if (cbxBase.Checked == false)
+                    cbxBase.Checked = true;
+                if (cbxOne.Checked == false)
+                    cbxOne.Checked = true;
+                if (cbxTwo.Checked == false)
+                    cbxTwo.Checked = true;
+            }
+        }
+
+        private void cbxFour_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxFour.Checked == false)
+            {
+                if (cbxFive.Checked == true)
+                    cbxFive.Checked = false;
+            }
+            else if (cbxFour.Checked == true)
+            {
+                if (cbxBase.Checked == false)
+                    cbxBase.Checked = true;
+                if (cbxOne.Checked == false)
+                    cbxOne.Checked = true;
+                if (cbxTwo.Checked == false)
+                    cbxTwo.Checked = true;
+                if (cbxThree.Checked == false)
+                    cbxThree.Checked = true;
+            }
+        }
+
+        private void cbxFive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxFive.Checked == true)
+            {
+                if (cbxBase.Checked == false)
+                    cbxBase.Checked = true;
+                if (cbxOne.Checked == false)
+                    cbxOne.Checked = true;
+                if (cbxTwo.Checked == false)
+                    cbxTwo.Checked = true;
+                if (cbxThree.Checked == false)
+                    cbxThree.Checked = true;
+                if (cbxFour.Checked == false)
+                    cbxFour.Checked = true;
+            }
         }
     }
 }
