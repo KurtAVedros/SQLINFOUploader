@@ -52,11 +52,7 @@
             this.tbxMediaName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.tbxHeight = new System.Windows.Forms.TextBox();
-            this.tbxWidth = new System.Windows.Forms.TextBox();
             this.tbxDescription = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.tbxTileFilePath = new System.Windows.Forms.TextBox();
@@ -68,51 +64,31 @@
             this.tbxTileFilePath1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tbxDescription1 = new System.Windows.Forms.TextBox();
-            this.tbxWidth1 = new System.Windows.Forms.TextBox();
-            this.tbxHeight1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.tbxMediaName1 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.tbxTileFilePath2 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tbxDescription2 = new System.Windows.Forms.TextBox();
-            this.tbxWidth2 = new System.Windows.Forms.TextBox();
-            this.tbxHeight2 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.tbxMediaName2 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.tbxTileFilePath3 = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tbxDescription3 = new System.Windows.Forms.TextBox();
-            this.tbxWidth3 = new System.Windows.Forms.TextBox();
-            this.tbxHeight3 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.tbxMediaName3 = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.tbxTileFilePath4 = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.tbxDescription4 = new System.Windows.Forms.TextBox();
-            this.tbxWidth4 = new System.Windows.Forms.TextBox();
-            this.tbxHeight4 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
             this.tbxMediaName4 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.tbxTileFilePath5 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.tbxDescription5 = new System.Windows.Forms.TextBox();
-            this.tbxWidth5 = new System.Windows.Forms.TextBox();
-            this.tbxHeight5 = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
             this.tbxMediaName5 = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.cbxBase = new System.Windows.Forms.CheckBox();
@@ -126,6 +102,8 @@
             this.tbxMediaPath = new System.Windows.Forms.TextBox();
             this.tbxThumPath = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
+            this.btnAddActual = new System.Windows.Forms.Button();
+            this.btnClearInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -242,11 +220,11 @@
             // 
             // btnNewSpecimen
             // 
-            this.btnNewSpecimen.Location = new System.Drawing.Point(42, 306);
+            this.btnNewSpecimen.Location = new System.Drawing.Point(18, 301);
             this.btnNewSpecimen.Name = "btnNewSpecimen";
-            this.btnNewSpecimen.Size = new System.Drawing.Size(153, 25);
+            this.btnNewSpecimen.Size = new System.Drawing.Size(100, 22);
             this.btnNewSpecimen.TabIndex = 11;
-            this.btnNewSpecimen.Text = "WIth New Specimen";
+            this.btnNewSpecimen.Text = "Add To Local";
             this.btnNewSpecimen.UseVisualStyleBackColor = true;
             this.btnNewSpecimen.Click += new System.EventHandler(this.btnNewSpecimen_Click);
             // 
@@ -295,6 +273,7 @@
             this.tbxIsOnExibit.Name = "tbxIsOnExibit";
             this.tbxIsOnExibit.Size = new System.Drawing.Size(100, 22);
             this.tbxIsOnExibit.TabIndex = 9;
+            this.tbxIsOnExibit.Text = "no";
             // 
             // label13
             // 
@@ -332,50 +311,18 @@
             this.label21.TabIndex = 48;
             this.label21.Text = "Additional Image 1";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(667, 47);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(91, 17);
-            this.label23.TabIndex = 50;
-            this.label23.Text = "Image Height";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(512, 47);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(86, 17);
-            this.label24.TabIndex = 51;
-            this.label24.Text = "Image Width";
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(822, 47);
+            this.label25.Location = new System.Drawing.Point(507, 47);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(79, 17);
             this.label25.TabIndex = 52;
             this.label25.Text = "Description";
             // 
-            // tbxHeight
-            // 
-            this.tbxHeight.Location = new System.Drawing.Point(697, 67);
-            this.tbxHeight.Name = "tbxHeight";
-            this.tbxHeight.Size = new System.Drawing.Size(100, 22);
-            this.tbxHeight.TabIndex = 55;
-            // 
-            // tbxWidth
-            // 
-            this.tbxWidth.Location = new System.Drawing.Point(538, 70);
-            this.tbxWidth.Name = "tbxWidth";
-            this.tbxWidth.Size = new System.Drawing.Size(100, 22);
-            this.tbxWidth.TabIndex = 56;
-            // 
             // tbxDescription
             // 
-            this.tbxDescription.Location = new System.Drawing.Point(850, 70);
+            this.tbxDescription.Location = new System.Drawing.Point(535, 70);
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription.TabIndex = 57;
@@ -383,7 +330,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(1142, 47);
+            this.label29.Location = new System.Drawing.Point(827, 47);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(90, 17);
             this.label29.TabIndex = 62;
@@ -391,7 +338,7 @@
             // 
             // tbxTileFilePath
             // 
-            this.tbxTileFilePath.Location = new System.Drawing.Point(1164, 70);
+            this.tbxTileFilePath.Location = new System.Drawing.Point(849, 70);
             this.tbxTileFilePath.Name = "tbxTileFilePath";
             this.tbxTileFilePath.Size = new System.Drawing.Size(262, 22);
             this.tbxTileFilePath.TabIndex = 66;
@@ -449,7 +396,7 @@
             // 
             // tbxTileFilePath1
             // 
-            this.tbxTileFilePath1.Location = new System.Drawing.Point(1164, 190);
+            this.tbxTileFilePath1.Location = new System.Drawing.Point(849, 186);
             this.tbxTileFilePath1.Name = "tbxTileFilePath1";
             this.tbxTileFilePath1.Size = new System.Drawing.Size(262, 22);
             this.tbxTileFilePath1.TabIndex = 108;
@@ -457,7 +404,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1142, 167);
+            this.label17.Location = new System.Drawing.Point(827, 163);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(90, 17);
             this.label17.TabIndex = 107;
@@ -465,51 +412,19 @@
             // 
             // tbxDescription1
             // 
-            this.tbxDescription1.Location = new System.Drawing.Point(850, 190);
+            this.tbxDescription1.Location = new System.Drawing.Point(535, 186);
             this.tbxDescription1.Name = "tbxDescription1";
             this.tbxDescription1.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription1.TabIndex = 105;
             // 
-            // tbxWidth1
-            // 
-            this.tbxWidth1.Location = new System.Drawing.Point(538, 190);
-            this.tbxWidth1.Name = "tbxWidth1";
-            this.tbxWidth1.Size = new System.Drawing.Size(100, 22);
-            this.tbxWidth1.TabIndex = 104;
-            // 
-            // tbxHeight1
-            // 
-            this.tbxHeight1.Location = new System.Drawing.Point(697, 187);
-            this.tbxHeight1.Name = "tbxHeight1";
-            this.tbxHeight1.Size = new System.Drawing.Size(100, 22);
-            this.tbxHeight1.TabIndex = 103;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(822, 167);
+            this.label19.Location = new System.Drawing.Point(507, 163);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 17);
             this.label19.TabIndex = 101;
             this.label19.Text = "Description";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(512, 167);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(86, 17);
-            this.label20.TabIndex = 100;
-            this.label20.Text = "Image Width";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(667, 167);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(91, 17);
-            this.label22.TabIndex = 99;
-            this.label22.Text = "Image Height";
             // 
             // tbxMediaName1
             // 
@@ -529,7 +444,7 @@
             // 
             // tbxTileFilePath2
             // 
-            this.tbxTileFilePath2.Location = new System.Drawing.Point(1164, 301);
+            this.tbxTileFilePath2.Location = new System.Drawing.Point(849, 298);
             this.tbxTileFilePath2.Name = "tbxTileFilePath2";
             this.tbxTileFilePath2.Size = new System.Drawing.Size(262, 22);
             this.tbxTileFilePath2.TabIndex = 120;
@@ -537,7 +452,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(1142, 278);
+            this.label28.Location = new System.Drawing.Point(827, 275);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(90, 17);
             this.label28.TabIndex = 119;
@@ -545,51 +460,19 @@
             // 
             // tbxDescription2
             // 
-            this.tbxDescription2.Location = new System.Drawing.Point(850, 301);
+            this.tbxDescription2.Location = new System.Drawing.Point(535, 298);
             this.tbxDescription2.Name = "tbxDescription2";
             this.tbxDescription2.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription2.TabIndex = 117;
             // 
-            // tbxWidth2
-            // 
-            this.tbxWidth2.Location = new System.Drawing.Point(538, 301);
-            this.tbxWidth2.Name = "tbxWidth2";
-            this.tbxWidth2.Size = new System.Drawing.Size(100, 22);
-            this.tbxWidth2.TabIndex = 116;
-            // 
-            // tbxHeight2
-            // 
-            this.tbxHeight2.Location = new System.Drawing.Point(697, 298);
-            this.tbxHeight2.Name = "tbxHeight2";
-            this.tbxHeight2.Size = new System.Drawing.Size(100, 22);
-            this.tbxHeight2.TabIndex = 115;
-            // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(822, 278);
+            this.label31.Location = new System.Drawing.Point(507, 275);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(79, 17);
             this.label31.TabIndex = 113;
             this.label31.Text = "Description";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(512, 278);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(86, 17);
-            this.label32.TabIndex = 112;
-            this.label32.Text = "Image Width";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(667, 278);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(91, 17);
-            this.label33.TabIndex = 111;
-            this.label33.Text = "Image Height";
             // 
             // tbxMediaName2
             // 
@@ -609,7 +492,7 @@
             // 
             // tbxTileFilePath3
             // 
-            this.tbxTileFilePath3.Location = new System.Drawing.Point(1164, 427);
+            this.tbxTileFilePath3.Location = new System.Drawing.Point(849, 422);
             this.tbxTileFilePath3.Name = "tbxTileFilePath3";
             this.tbxTileFilePath3.Size = new System.Drawing.Size(262, 22);
             this.tbxTileFilePath3.TabIndex = 132;
@@ -617,7 +500,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(1142, 404);
+            this.label35.Location = new System.Drawing.Point(827, 399);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(90, 17);
             this.label35.TabIndex = 131;
@@ -625,51 +508,19 @@
             // 
             // tbxDescription3
             // 
-            this.tbxDescription3.Location = new System.Drawing.Point(850, 427);
+            this.tbxDescription3.Location = new System.Drawing.Point(535, 422);
             this.tbxDescription3.Name = "tbxDescription3";
             this.tbxDescription3.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription3.TabIndex = 129;
             // 
-            // tbxWidth3
-            // 
-            this.tbxWidth3.Location = new System.Drawing.Point(538, 427);
-            this.tbxWidth3.Name = "tbxWidth3";
-            this.tbxWidth3.Size = new System.Drawing.Size(100, 22);
-            this.tbxWidth3.TabIndex = 128;
-            // 
-            // tbxHeight3
-            // 
-            this.tbxHeight3.Location = new System.Drawing.Point(697, 424);
-            this.tbxHeight3.Name = "tbxHeight3";
-            this.tbxHeight3.Size = new System.Drawing.Size(100, 22);
-            this.tbxHeight3.TabIndex = 127;
-            // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(822, 404);
+            this.label37.Location = new System.Drawing.Point(507, 399);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(79, 17);
             this.label37.TabIndex = 125;
             this.label37.Text = "Description";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(512, 404);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(86, 17);
-            this.label38.TabIndex = 124;
-            this.label38.Text = "Image Width";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(667, 404);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(91, 17);
-            this.label39.TabIndex = 123;
-            this.label39.Text = "Image Height";
             // 
             // tbxMediaName3
             // 
@@ -689,7 +540,7 @@
             // 
             // tbxTileFilePath4
             // 
-            this.tbxTileFilePath4.Location = new System.Drawing.Point(1164, 548);
+            this.tbxTileFilePath4.Location = new System.Drawing.Point(849, 543);
             this.tbxTileFilePath4.Name = "tbxTileFilePath4";
             this.tbxTileFilePath4.Size = new System.Drawing.Size(262, 22);
             this.tbxTileFilePath4.TabIndex = 144;
@@ -697,7 +548,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(1142, 525);
+            this.label41.Location = new System.Drawing.Point(827, 520);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(90, 17);
             this.label41.TabIndex = 143;
@@ -705,51 +556,19 @@
             // 
             // tbxDescription4
             // 
-            this.tbxDescription4.Location = new System.Drawing.Point(850, 548);
+            this.tbxDescription4.Location = new System.Drawing.Point(535, 543);
             this.tbxDescription4.Name = "tbxDescription4";
             this.tbxDescription4.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription4.TabIndex = 141;
             // 
-            // tbxWidth4
-            // 
-            this.tbxWidth4.Location = new System.Drawing.Point(538, 548);
-            this.tbxWidth4.Name = "tbxWidth4";
-            this.tbxWidth4.Size = new System.Drawing.Size(100, 22);
-            this.tbxWidth4.TabIndex = 140;
-            // 
-            // tbxHeight4
-            // 
-            this.tbxHeight4.Location = new System.Drawing.Point(697, 545);
-            this.tbxHeight4.Name = "tbxHeight4";
-            this.tbxHeight4.Size = new System.Drawing.Size(100, 22);
-            this.tbxHeight4.TabIndex = 139;
-            // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(822, 525);
+            this.label43.Location = new System.Drawing.Point(507, 520);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(79, 17);
             this.label43.TabIndex = 137;
             this.label43.Text = "Description";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(512, 525);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(86, 17);
-            this.label44.TabIndex = 136;
-            this.label44.Text = "Image Width";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(667, 525);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(91, 17);
-            this.label45.TabIndex = 135;
-            this.label45.Text = "Image Height";
             // 
             // tbxMediaName4
             // 
@@ -769,7 +588,7 @@
             // 
             // tbxTileFilePath5
             // 
-            this.tbxTileFilePath5.Location = new System.Drawing.Point(1164, 668);
+            this.tbxTileFilePath5.Location = new System.Drawing.Point(849, 666);
             this.tbxTileFilePath5.Name = "tbxTileFilePath5";
             this.tbxTileFilePath5.Size = new System.Drawing.Size(262, 22);
             this.tbxTileFilePath5.TabIndex = 156;
@@ -777,7 +596,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(1142, 645);
+            this.label47.Location = new System.Drawing.Point(827, 643);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(90, 17);
             this.label47.TabIndex = 155;
@@ -785,51 +604,19 @@
             // 
             // tbxDescription5
             // 
-            this.tbxDescription5.Location = new System.Drawing.Point(850, 668);
+            this.tbxDescription5.Location = new System.Drawing.Point(535, 666);
             this.tbxDescription5.Name = "tbxDescription5";
             this.tbxDescription5.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription5.TabIndex = 153;
             // 
-            // tbxWidth5
-            // 
-            this.tbxWidth5.Location = new System.Drawing.Point(538, 668);
-            this.tbxWidth5.Name = "tbxWidth5";
-            this.tbxWidth5.Size = new System.Drawing.Size(100, 22);
-            this.tbxWidth5.TabIndex = 152;
-            // 
-            // tbxHeight5
-            // 
-            this.tbxHeight5.Location = new System.Drawing.Point(697, 665);
-            this.tbxHeight5.Name = "tbxHeight5";
-            this.tbxHeight5.Size = new System.Drawing.Size(100, 22);
-            this.tbxHeight5.TabIndex = 151;
-            // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(822, 645);
+            this.label49.Location = new System.Drawing.Point(507, 643);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(79, 17);
             this.label49.TabIndex = 149;
             this.label49.Text = "Description";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(512, 645);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(86, 17);
-            this.label50.TabIndex = 148;
-            this.label50.Text = "Image Width";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(667, 645);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(91, 17);
-            this.label51.TabIndex = 147;
-            this.label51.Text = "Image Height";
             // 
             // tbxMediaName5
             // 
@@ -915,9 +702,9 @@
             // 
             // rtbInformation
             // 
-            this.rtbInformation.Location = new System.Drawing.Point(13, 343);
+            this.rtbInformation.Location = new System.Drawing.Point(13, 364);
             this.rtbInformation.Name = "rtbInformation";
-            this.rtbInformation.Size = new System.Drawing.Size(284, 371);
+            this.rtbInformation.Size = new System.Drawing.Size(284, 350);
             this.rtbInformation.TabIndex = 169;
             this.rtbInformation.Text = "";
             // 
@@ -953,12 +740,34 @@
             this.label26.TabIndex = 172;
             this.label26.Text = "Thum Path";
             // 
+            // btnAddActual
+            // 
+            this.btnAddActual.Location = new System.Drawing.Point(151, 301);
+            this.btnAddActual.Name = "btnAddActual";
+            this.btnAddActual.Size = new System.Drawing.Size(120, 22);
+            this.btnAddActual.TabIndex = 174;
+            this.btnAddActual.Text = "Add To Actual";
+            this.btnAddActual.UseVisualStyleBackColor = true;
+            this.btnAddActual.Click += new System.EventHandler(this.btnAddActual_Click);
+            // 
+            // btnClearInfo
+            // 
+            this.btnClearInfo.Location = new System.Drawing.Point(18, 336);
+            this.btnClearInfo.Name = "btnClearInfo";
+            this.btnClearInfo.Size = new System.Drawing.Size(100, 22);
+            this.btnClearInfo.TabIndex = 175;
+            this.btnClearInfo.Text = "Clear Info";
+            this.btnClearInfo.UseVisualStyleBackColor = true;
+            this.btnClearInfo.Click += new System.EventHandler(this.btnClearInfo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1449, 726);
+            this.ClientSize = new System.Drawing.Size(1124, 726);
+            this.Controls.Add(this.btnClearInfo);
+            this.Controls.Add(this.btnAddActual);
             this.Controls.Add(this.tbxThumPath);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.tbxMediaPath);
@@ -973,51 +782,31 @@
             this.Controls.Add(this.tbxTileFilePath5);
             this.Controls.Add(this.label47);
             this.Controls.Add(this.tbxDescription5);
-            this.Controls.Add(this.tbxWidth5);
-            this.Controls.Add(this.tbxHeight5);
             this.Controls.Add(this.label49);
-            this.Controls.Add(this.label50);
-            this.Controls.Add(this.label51);
             this.Controls.Add(this.tbxMediaName5);
             this.Controls.Add(this.label52);
             this.Controls.Add(this.tbxTileFilePath4);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.tbxDescription4);
-            this.Controls.Add(this.tbxWidth4);
-            this.Controls.Add(this.tbxHeight4);
             this.Controls.Add(this.label43);
-            this.Controls.Add(this.label44);
-            this.Controls.Add(this.label45);
             this.Controls.Add(this.tbxMediaName4);
             this.Controls.Add(this.label46);
             this.Controls.Add(this.tbxTileFilePath3);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.tbxDescription3);
-            this.Controls.Add(this.tbxWidth3);
-            this.Controls.Add(this.tbxHeight3);
             this.Controls.Add(this.label37);
-            this.Controls.Add(this.label38);
-            this.Controls.Add(this.label39);
             this.Controls.Add(this.tbxMediaName3);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.tbxTileFilePath2);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.tbxDescription2);
-            this.Controls.Add(this.tbxWidth2);
-            this.Controls.Add(this.tbxHeight2);
             this.Controls.Add(this.label31);
-            this.Controls.Add(this.label32);
-            this.Controls.Add(this.label33);
             this.Controls.Add(this.tbxMediaName2);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.tbxTileFilePath1);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.tbxDescription1);
-            this.Controls.Add(this.tbxWidth1);
-            this.Controls.Add(this.tbxHeight1);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label22);
             this.Controls.Add(this.tbxMediaName1);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label16);
@@ -1028,11 +817,7 @@
             this.Controls.Add(this.tbxTileFilePath);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.tbxDescription);
-            this.Controls.Add(this.tbxWidth);
-            this.Controls.Add(this.tbxHeight);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.tbxMediaName);
@@ -1091,11 +876,7 @@
         private System.Windows.Forms.TextBox tbxMediaName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox tbxHeight;
-        private System.Windows.Forms.TextBox tbxWidth;
         private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox tbxTileFilePath;
@@ -1107,51 +888,31 @@
         private System.Windows.Forms.TextBox tbxTileFilePath1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbxDescription1;
-        private System.Windows.Forms.TextBox tbxWidth1;
-        private System.Windows.Forms.TextBox tbxHeight1;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox tbxMediaName1;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox tbxTileFilePath2;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tbxDescription2;
-        private System.Windows.Forms.TextBox tbxWidth2;
-        private System.Windows.Forms.TextBox tbxHeight2;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox tbxMediaName2;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox tbxTileFilePath3;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox tbxDescription3;
-        private System.Windows.Forms.TextBox tbxWidth3;
-        private System.Windows.Forms.TextBox tbxHeight3;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox tbxMediaName3;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox tbxTileFilePath4;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox tbxDescription4;
-        private System.Windows.Forms.TextBox tbxWidth4;
-        private System.Windows.Forms.TextBox tbxHeight4;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox tbxMediaName4;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox tbxTileFilePath5;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox tbxDescription5;
-        private System.Windows.Forms.TextBox tbxWidth5;
-        private System.Windows.Forms.TextBox tbxHeight5;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox tbxMediaName5;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.CheckBox cbxBase;
@@ -1165,6 +926,8 @@
         private System.Windows.Forms.TextBox tbxMediaPath;
         private System.Windows.Forms.TextBox tbxThumPath;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnAddActual;
+        private System.Windows.Forms.Button btnClearInfo;
     }
 }
 

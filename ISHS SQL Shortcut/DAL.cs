@@ -9,11 +9,31 @@ namespace ISHS_SQL_Shortcut
 {
     class DAL
     {
+        // for local
         private static string ReadOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_reader;Password=9f#l1N4MDuE)";
         private static string EditOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_editor;Password=$s!kFB_e#ad6V";
 
+
+        // for textile database
+        //private static string ReadOnlyConnectionString = "server=164.165.207.102;Database=ISHS_Dev;User ID=iusr_ishs_reader;Password=9f#l1N4MDuE)";
+        //private static string EditOnlyConnectionString = "server=164.165.207.102;Database=ISHS_Dev;User ID=iusr_ishs_editor;Password=$s!kFB_e#ad6V";
+
         private DAL()
         {
+        }
+
+        public static void setDatabase(int num)
+        {
+            if(num == 1)
+            {
+                ReadOnlyConnectionString = "";
+                EditOnlyConnectionString = "";
+            }
+            else
+            {
+                ReadOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_reader;Password=9f#l1N4MDuE)";
+                EditOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_editor;Password=$s!kFB_e#ad6V";
+            }
         }
 
         #region Media
@@ -158,7 +178,7 @@ namespace ISHS_SQL_Shortcut
         #region Specimen
 
         public static int SpecimenAdd(int SpecimenID, string AccessionNumber, int CategoryID, int SubCategoryID,
-            string Circa, int CollectionID, bool IsOnExhibit)
+            string Circa, int CollectionID, bool IsOnExhibit, int RediscovryID)
         {
             int retInt = -1;
 
@@ -168,12 +188,18 @@ namespace ISHS_SQL_Shortcut
                 comm.CommandText = "sproc_SpecimenAdd";
                 comm.Parameters.AddWithValue("@AccessionNumber", AccessionNumber);
                 comm.Parameters.AddWithValue("@CategoryID", CategoryID);
-                comm.Parameters.AddWithValue("@SubCategoryID", SubCategoryID);
+                if(SubCategoryID == 0)
+                    comm.Parameters.AddWithValue("@SubCategoryID", DBNull.Value);
+                else
+                    comm.Parameters.AddWithValue("@SubCategoryID", SubCategoryID);
                 comm.Parameters.AddWithValue("@Circa", Circa);
                 comm.Parameters.AddWithValue("@MaterialID", DBNull.Value);
                 comm.Parameters.AddWithValue("@SecondaryMaterialID", DBNull.Value);
                 comm.Parameters.AddWithValue("@CollectionID", CollectionID);
-                comm.Parameters.AddWithValue("@RediscovRecordID", DBNull.Value);
+                if(RediscovryID == 0)
+                    comm.Parameters.AddWithValue("@RediscovRecordID", DBNull.Value);
+                else
+                    comm.Parameters.AddWithValue("@RediscovRecordID", RediscovryID);
                 comm.Parameters.AddWithValue("@IsOnExhibit", IsOnExhibit);
 
                 SqlParameter retParameter;

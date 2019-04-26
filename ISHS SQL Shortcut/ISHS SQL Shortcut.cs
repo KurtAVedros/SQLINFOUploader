@@ -85,7 +85,7 @@ namespace ISHS_SQL_Shortcut
 
         private void btnNewSpecimen_Click(object sender, EventArgs e)
         {
-            
+            DAL.setDatabase(0);
             if(cbxBase.Checked == true)
             {
                 fillInformationBase();
@@ -116,7 +116,48 @@ namespace ISHS_SQL_Shortcut
                 fillInformationFive();
                 addToDatabaseCycleAdditional();
             }
-            rtbInformation.Text += SpecimenID + " has been added.\n";
+            rtbInformation.Text += SpecimenID + " has been added to LOCAL.\n";
+        }
+
+
+        private void btnAddActual_Click(object sender, EventArgs e)
+        {
+            DAL.setDatabase(1);
+            if (cbxBase.Checked == true)
+            {
+                fillInformationBase();
+                addToDatabaseCycleBase();
+            }
+            if (cbxOne.Checked == true)
+            {
+                fillInformationOne();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxTwo.Checked == true)
+            {
+                fillInformationTwo();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxThree.Checked == true)
+            {
+                fillInformationThree();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxFour.Checked == true)
+            {
+                fillInformationFour();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxFive.Checked == true)
+            {
+                fillInformationFive();
+                addToDatabaseCycleAdditional();
+            }
+            rtbInformation.Text += SpecimenID + " has been added to ACTUAL.\n";
+        }
+
+        private void btnClearInfo_Click(object sender, EventArgs e)
+        {
             clearText();
             resetCheckBoxs();
         }
@@ -312,7 +353,7 @@ namespace ISHS_SQL_Shortcut
             AccessionNumber = tbxAccessionNum.Text;
             setCategory();
             setSubCategory();
-            Circa = "'" + tbxCirca.Text + "'";
+            Circa = tbxCirca.Text;
             MaterialID = "NULL";
             SecondaryMaterialID = "NULL";
             setCollection();
@@ -334,8 +375,10 @@ namespace ISHS_SQL_Shortcut
 
             // for Media
             //  MimeType = "image/jpeg";
-            ImageHeight = int.Parse(tbxHeight.Text);
-            ImageWidth = int.Parse(tbxWidth.Text);
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
             Description = tbxDescription.Text;
             IsSpecimenShowcaseMedia = true;
             //MediaID = int.Parse(tbxNextMediaID.Text);
@@ -361,8 +404,10 @@ namespace ISHS_SQL_Shortcut
 
             // for Media
             //  MimeType = "image/jpeg";
-            ImageHeight = int.Parse(tbxHeight1.Text);
-            ImageWidth = int.Parse(tbxWidth1.Text);
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
             Description = tbxDescription1.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
@@ -388,8 +433,10 @@ namespace ISHS_SQL_Shortcut
 
             // for Media
             //  MimeType = "image/jpeg";
-            ImageHeight = int.Parse(tbxHeight2.Text);
-            ImageWidth = int.Parse(tbxWidth2.Text);
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
             Description = tbxDescription2.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
@@ -415,8 +462,10 @@ namespace ISHS_SQL_Shortcut
 
             // for Media
             //  MimeType = "image/jpeg";
-            ImageHeight = int.Parse(tbxHeight3.Text);
-            ImageWidth = int.Parse(tbxWidth3.Text);
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
             Description = tbxDescription3.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
@@ -442,8 +491,10 @@ namespace ISHS_SQL_Shortcut
 
             // for Media
             //  MimeType = "image/jpeg";
-            ImageHeight = int.Parse(tbxHeight4.Text);
-            ImageWidth = int.Parse(tbxWidth4.Text);
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
             Description = tbxDescription4.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
@@ -469,8 +520,10 @@ namespace ISHS_SQL_Shortcut
 
             // for Media
             //  MimeType = "image/jpeg";
-            ImageHeight = int.Parse(tbxHeight5.Text);
-            ImageWidth = int.Parse(tbxWidth5.Text);
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
             Description = tbxDescription5.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
@@ -483,8 +536,11 @@ namespace ISHS_SQL_Shortcut
         // Cycles for adding information into the database
         private void addToDatabaseCycleBase()
         {
-            SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), int.Parse(SubCategoryID), Circa,
-                CollectionID, IsOnExhibit);
+            int SubCategoryNum = 0;
+            if (SubCategoryID != "NULL")
+                SubCategoryNum = int.Parse(SubCategoryID);
+            SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), SubCategoryNum, Circa,
+                CollectionID, IsOnExhibit, int.Parse(RediscovRecordID));
             string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
             data = System.IO.File.ReadAllBytes(DataMedia);
             MediaDataID = DAL.MediaDataAdd(0, data);
@@ -532,20 +588,6 @@ namespace ISHS_SQL_Shortcut
             tbxSubCategory.Clear();
             tbxRediscovRecordID.Clear();
 
-            tbxHeight.Clear();
-            tbxHeight1.Clear();
-            tbxHeight2.Clear();
-            tbxHeight3.Clear();
-            tbxHeight4.Clear();
-            tbxHeight5.Clear();
-
-            tbxWidth.Clear();
-            tbxWidth1.Clear();
-            tbxWidth2.Clear();
-            tbxWidth3.Clear();
-            tbxWidth4.Clear();
-            tbxWidth5.Clear();
-
             tbxDescription.Clear();
             tbxDescription1.Clear();
             tbxDescription2.Clear();
@@ -563,6 +605,13 @@ namespace ISHS_SQL_Shortcut
             tbxTileFilePath3.Clear();
             tbxTileFilePath4.Clear();
             tbxTileFilePath5.Clear();
+
+            tbxMediaName.Clear();
+            tbxMediaName1.Clear();
+            tbxMediaName2.Clear();
+            tbxMediaName3.Clear();
+            tbxMediaName4.Clear();
+            tbxMediaName5.Clear();
         }
 
         private void resetCheckBoxs()
@@ -758,9 +807,9 @@ namespace ISHS_SQL_Shortcut
             else if (tbxSubCategory.Text == "DW")
             { SubCategoryID = "13"; }
             else if (tbxSubCategory.Text.ToLower() == "null")
-            { SubCategoryID = "NULL"; }
+            { SubCategoryID = "0"; }
             else
-            { tbxSubCategory.Text = "ERROR"; }
+            { SubCategoryID = "0"; }
         }
 
         private void cbxBase_CheckedChanged(object sender, EventArgs e)
