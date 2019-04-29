@@ -26,8 +26,8 @@ namespace ISHS_SQL_Shortcut
         {
             if(num == 1)
             {
-                ReadOnlyConnectionString = "";
-                EditOnlyConnectionString = "";
+                ReadOnlyConnectionString = "server=164.165.207.102;Database=ishs_textile;User ID=ISHSISUdbo;Password=The Museum Encountered Bengals!";
+                EditOnlyConnectionString = "server=164.165.207.102;Database=ishs_textile;User ID=ISHSISUdbo;Password=The Museum Encountered Bengals!";
             }
             else
             {

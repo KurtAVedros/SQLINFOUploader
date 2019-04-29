@@ -356,7 +356,7 @@ namespace ISHS_SQL_Shortcut
             Circa = tbxCirca.Text;
             MaterialID = "NULL";
             SecondaryMaterialID = "NULL";
-            setCollection();
+            setCollection(Circa);
             RediscovRecordID = tbxRediscovRecordID.Text;
             setIsOnExhibit();
             //SpecimenID = int.Parse(tbxSpecimenID.Text);
@@ -368,7 +368,7 @@ namespace ISHS_SQL_Shortcut
             //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
 
             // for ThumbnailData
-            ThumbnailFilePath = tbxThumPath.Text;
+            ThumbnailFilePath = tbxMediaPath.Text + "\\Thumbnail";
             ThumbnailFileName = tbxMediaName.Text;
             //  ThumbnailFileEnding = "jpg";
             //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
@@ -583,7 +583,6 @@ namespace ISHS_SQL_Shortcut
         {
             tbxAccessionNum.Clear();
             tbxCirca.Clear();
-            tbxCollection.Clear();
             tbxCategory.Clear();
             tbxSubCategory.Clear();
             tbxRediscovRecordID.Clear();
@@ -596,8 +595,6 @@ namespace ISHS_SQL_Shortcut
             tbxDescription5.Clear();
 
             tbxMediaPath.Clear();
-
-            tbxThumPath.Clear();
 
             tbxTileFilePath.Clear();
             tbxTileFilePath1.Clear();
@@ -644,52 +641,52 @@ namespace ISHS_SQL_Shortcut
             { IsOnExhibit = false; }
         }
 
-        private void setCollection()
+        private void setCollection(string number)
         {
-            if (tbxCollection.Text == "1870")
+            if (number == "1870")
             { CollectionID = 1; }
-            else if (tbxCollection.Text == "1910")
+            else if (number == "1910")
             { CollectionID = 2; }
-            else if (tbxCollection.Text == "1880")
+            else if (number == "1880")
             { CollectionID = 3; }
-            else if (tbxCollection.Text == "1940")
+            else if (number == "1940")
             { CollectionID = 4; }
-            else if (tbxCollection.Text == "1920")
+            else if (number == "1920")
             { CollectionID = 5; }
-            else if (tbxCollection.Text == "1890")
+            else if (number == "1890")
             { CollectionID = 7; }
-            else if (tbxCollection.Text == "1900")
+            else if (number == "1900")
             { CollectionID = 8; }
-            else if (tbxCollection.Text == "1980")
+            else if (number == "1980")
             { CollectionID = 9; }
-            else if (tbxCollection.Text == "1960")
+            else if (number == "1960")
             { CollectionID = 10; }
-            else if (tbxCollection.Text == "1970")
+            else if (number == "1970")
             { CollectionID = 11; }
-            else if (tbxCollection.Text == "1950")
+            else if (number == "1950")
             { CollectionID = 12; }
-            else if (tbxCollection.Text == "1830")
+            else if (number == "1830")
             { CollectionID = 13; }
-            else if (tbxCollection.Text == "Unknown")
+            else if (number == "Unknown")
             { CollectionID = 14; }
-            else if (tbxCollection.Text == "1930")
+            else if (number == "1930")
             { CollectionID = 15; }
-            else if (tbxCollection.Text == "1850")
+            else if (number == "1850")
             { CollectionID = 16; }
-            else if (tbxCollection.Text == "1860")
+            else if (number == "1860")
             { CollectionID = 17; }
-            else if (tbxCollection.Text == "1990")
+            else if (number == "1990")
             { CollectionID = 18; }
-            else if (tbxCollection.Text == "1840")
+            else if (number == "1840")
             { CollectionID = 19; }
-            else if (tbxCollection.Text == "Currentlyon Exhibit")
+            else if (number == "Currentlyon Exhibit")
             { CollectionID = 20; }
-            else if (tbxCollection.Text.ToLower() == "unassigned")
+            else if (number.ToLower() == "unassigned")
             { CollectionID = 21; }
-            else if (tbxCollection.Text.ToLower() == "un")
+            else if (number.ToLower() == "un")
             { CollectionID = 21; }
             else
-            { tbxCollection.Text = "ERROR"; }
+            { number = "ERROR"; }
         }
 
         private void setCategory()
