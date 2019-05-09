@@ -383,7 +383,7 @@ namespace ISHS_SQL_Shortcut
             IsSpecimenShowcaseMedia = true;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
-            TileFilePath = tbxTileFilePath.Text;
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
             //TileFileName = tbxTileName.Text;
             //  TileFileEnding = "jpg";
         }
@@ -412,7 +412,7 @@ namespace ISHS_SQL_Shortcut
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
-            TileFilePath = tbxTileFilePath1.Text;
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
             //TileFileName = tbxTileName.Text;
             //  TileFileEnding = "jpg";
         }
@@ -441,7 +441,7 @@ namespace ISHS_SQL_Shortcut
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
-            TileFilePath = tbxTileFilePath2.Text;
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
             //TileFileName = tbxTileName.Text;
             //  TileFileEnding = "jpg";
         }
@@ -470,7 +470,7 @@ namespace ISHS_SQL_Shortcut
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
-            TileFilePath = tbxTileFilePath3.Text;
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
             //TileFileName = tbxTileName.Text;
             //  TileFileEnding = "jpg";
         }
@@ -499,7 +499,7 @@ namespace ISHS_SQL_Shortcut
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
-            TileFilePath = tbxTileFilePath4.Text;
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
             //TileFileName = tbxTileName.Text;
             //  TileFileEnding = "jpg";
         }
@@ -528,7 +528,7 @@ namespace ISHS_SQL_Shortcut
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
-            TileFilePath = tbxTileFilePath5.Text;
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
             //TileFileName = tbxTileName.Text;
             //  TileFileEnding = "jpg";
         }
@@ -595,13 +595,6 @@ namespace ISHS_SQL_Shortcut
             tbxDescription5.Clear();
 
             tbxMediaPath.Clear();
-
-            tbxTileFilePath.Clear();
-            tbxTileFilePath1.Clear();
-            tbxTileFilePath2.Clear();
-            tbxTileFilePath3.Clear();
-            tbxTileFilePath4.Clear();
-            tbxTileFilePath5.Clear();
 
             tbxMediaName.Clear();
             tbxMediaName1.Clear();
@@ -681,10 +674,18 @@ namespace ISHS_SQL_Shortcut
             { CollectionID = 19; }
             else if (number == "Currentlyon Exhibit")
             { CollectionID = 20; }
-            else if (number.ToLower() == "unassigned")
-            { CollectionID = 21; }
-            else if (number.ToLower() == "un")
-            { CollectionID = 21; }
+            else if (number == "2000")
+            { CollectionID = 25; }
+            else if (number == "2010")
+            { CollectionID = 26; }
+            else if (number == "1820")
+            { CollectionID = 24; }
+            else if (number == "1810")
+            { CollectionID = 27; }
+            else if (number == "1800")
+            { CollectionID = 28; }
+            else if (number == "Pre-1800")
+            { CollectionID = 29; }
             else
             { number = "ERROR"; }
         }

@@ -52,39 +52,27 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tbxDescription = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.tbxTileFilePath = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.tbxTileFilePath1 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.tbxDescription1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.tbxMediaName1 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.tbxTileFilePath2 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.tbxDescription2 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tbxMediaName2 = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.tbxTileFilePath3 = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.tbxDescription3 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.tbxMediaName3 = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.tbxTileFilePath4 = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
             this.tbxDescription4 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.tbxMediaName4 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.tbxTileFilePath5 = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
             this.tbxDescription5 = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.tbxMediaName5 = new System.Windows.Forms.TextBox();
@@ -307,22 +295,6 @@
             this.tbxDescription.Size = new System.Drawing.Size(260, 22);
             this.tbxDescription.TabIndex = 57;
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(827, 47);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(90, 17);
-            this.label29.TabIndex = 62;
-            this.label29.Text = "Tile File Path";
-            // 
-            // tbxTileFilePath
-            // 
-            this.tbxTileFilePath.Location = new System.Drawing.Point(849, 70);
-            this.tbxTileFilePath.Name = "tbxTileFilePath";
-            this.tbxTileFilePath.Size = new System.Drawing.Size(262, 22);
-            this.tbxTileFilePath.TabIndex = 66;
-            // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -374,22 +346,6 @@
             this.label16.TabIndex = 96;
             this.label16.Text = "Additional Image 5";
             // 
-            // tbxTileFilePath1
-            // 
-            this.tbxTileFilePath1.Location = new System.Drawing.Point(849, 186);
-            this.tbxTileFilePath1.Name = "tbxTileFilePath1";
-            this.tbxTileFilePath1.Size = new System.Drawing.Size(262, 22);
-            this.tbxTileFilePath1.TabIndex = 108;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(827, 163);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(90, 17);
-            this.label17.TabIndex = 107;
-            this.label17.Text = "Tile File Path";
-            // 
             // tbxDescription1
             // 
             this.tbxDescription1.Location = new System.Drawing.Point(535, 186);
@@ -421,22 +377,6 @@
             this.label27.Size = new System.Drawing.Size(87, 17);
             this.label27.TabIndex = 97;
             this.label27.Text = "Medai Name";
-            // 
-            // tbxTileFilePath2
-            // 
-            this.tbxTileFilePath2.Location = new System.Drawing.Point(849, 298);
-            this.tbxTileFilePath2.Name = "tbxTileFilePath2";
-            this.tbxTileFilePath2.Size = new System.Drawing.Size(262, 22);
-            this.tbxTileFilePath2.TabIndex = 120;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(827, 275);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(90, 17);
-            this.label28.TabIndex = 119;
-            this.label28.Text = "Tile File Path";
             // 
             // tbxDescription2
             // 
@@ -470,22 +410,6 @@
             this.label34.TabIndex = 109;
             this.label34.Text = "Medai Name";
             // 
-            // tbxTileFilePath3
-            // 
-            this.tbxTileFilePath3.Location = new System.Drawing.Point(849, 422);
-            this.tbxTileFilePath3.Name = "tbxTileFilePath3";
-            this.tbxTileFilePath3.Size = new System.Drawing.Size(262, 22);
-            this.tbxTileFilePath3.TabIndex = 132;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(827, 399);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(90, 17);
-            this.label35.TabIndex = 131;
-            this.label35.Text = "Tile File Path";
-            // 
             // tbxDescription3
             // 
             this.tbxDescription3.Location = new System.Drawing.Point(535, 422);
@@ -518,22 +442,6 @@
             this.label40.TabIndex = 121;
             this.label40.Text = "Medai Name";
             // 
-            // tbxTileFilePath4
-            // 
-            this.tbxTileFilePath4.Location = new System.Drawing.Point(849, 543);
-            this.tbxTileFilePath4.Name = "tbxTileFilePath4";
-            this.tbxTileFilePath4.Size = new System.Drawing.Size(262, 22);
-            this.tbxTileFilePath4.TabIndex = 144;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(827, 520);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(90, 17);
-            this.label41.TabIndex = 143;
-            this.label41.Text = "Tile File Path";
-            // 
             // tbxDescription4
             // 
             this.tbxDescription4.Location = new System.Drawing.Point(535, 543);
@@ -565,22 +473,6 @@
             this.label46.Size = new System.Drawing.Size(87, 17);
             this.label46.TabIndex = 133;
             this.label46.Text = "Medai Name";
-            // 
-            // tbxTileFilePath5
-            // 
-            this.tbxTileFilePath5.Location = new System.Drawing.Point(849, 666);
-            this.tbxTileFilePath5.Name = "tbxTileFilePath5";
-            this.tbxTileFilePath5.Size = new System.Drawing.Size(262, 22);
-            this.tbxTileFilePath5.TabIndex = 156;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(827, 643);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(90, 17);
-            this.label47.TabIndex = 155;
-            this.label47.Text = "Tile File Path";
             // 
             // tbxDescription5
             // 
@@ -691,7 +583,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(716, 20);
+            this.label18.Location = new System.Drawing.Point(469, 100);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 17);
             this.label18.TabIndex = 170;
@@ -699,7 +591,7 @@
             // 
             // tbxMediaPath
             // 
-            this.tbxMediaPath.Location = new System.Drawing.Point(801, 20);
+            this.tbxMediaPath.Location = new System.Drawing.Point(554, 98);
             this.tbxMediaPath.Name = "tbxMediaPath";
             this.tbxMediaPath.Size = new System.Drawing.Size(185, 22);
             this.tbxMediaPath.TabIndex = 171;
@@ -729,7 +621,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1124, 726);
+            this.ClientSize = new System.Drawing.Size(812, 726);
             this.Controls.Add(this.btnClearInfo);
             this.Controls.Add(this.btnAddActual);
             this.Controls.Add(this.tbxMediaPath);
@@ -741,32 +633,22 @@
             this.Controls.Add(this.cbxTwo);
             this.Controls.Add(this.cbxOne);
             this.Controls.Add(this.cbxBase);
-            this.Controls.Add(this.tbxTileFilePath5);
-            this.Controls.Add(this.label47);
             this.Controls.Add(this.tbxDescription5);
             this.Controls.Add(this.label49);
             this.Controls.Add(this.tbxMediaName5);
             this.Controls.Add(this.label52);
-            this.Controls.Add(this.tbxTileFilePath4);
-            this.Controls.Add(this.label41);
             this.Controls.Add(this.tbxDescription4);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.tbxMediaName4);
             this.Controls.Add(this.label46);
-            this.Controls.Add(this.tbxTileFilePath3);
-            this.Controls.Add(this.label35);
             this.Controls.Add(this.tbxDescription3);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.tbxMediaName3);
             this.Controls.Add(this.label40);
-            this.Controls.Add(this.tbxTileFilePath2);
-            this.Controls.Add(this.label28);
             this.Controls.Add(this.tbxDescription2);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.tbxMediaName2);
             this.Controls.Add(this.label34);
-            this.Controls.Add(this.tbxTileFilePath1);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.tbxDescription1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.tbxMediaName1);
@@ -776,8 +658,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.tbxTileFilePath);
-            this.Controls.Add(this.label29);
             this.Controls.Add(this.tbxDescription);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label21);
@@ -836,39 +716,27 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox tbxDescription;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox tbxTileFilePath;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox tbxTileFilePath1;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbxDescription1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tbxMediaName1;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox tbxTileFilePath2;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox tbxDescription2;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox tbxMediaName2;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox tbxTileFilePath3;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox tbxDescription3;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox tbxMediaName3;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TextBox tbxTileFilePath4;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox tbxDescription4;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.TextBox tbxMediaName4;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox tbxTileFilePath5;
-        private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox tbxDescription5;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox tbxMediaName5;
