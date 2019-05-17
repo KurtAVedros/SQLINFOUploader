@@ -20,9 +20,6 @@ namespace ISHS_SQL_Shortcut
     public partial class Form1 : Form
     {
         //----------------------------------------Variables------------------------------------------------------
-        int TempStep7indicator = 0;
-        int TempStep8indicator = 0;
-
         // variables for step 1
         string AccessionNumber = "NULL";
         string CategoryID = "NULL";
@@ -127,9 +124,9 @@ namespace ISHS_SQL_Shortcut
 
         private void btnAddActual_Click(object sender, EventArgs e)
         {
-            if (!CheckInput())
+            if (CheckInput())
             {
-                DAL.setDatabase(1);
+                DAL.setDatabase();
                 if (cbxBase.Checked == true)
                 {
                     fillInformationBase();
@@ -162,13 +159,17 @@ namespace ISHS_SQL_Shortcut
                 }
                 rtbInformation.Text += SpecimenID + " has been added to the Database.\n";
             }
+            else
+            {
+                rtbInformation.Text += "failed to add specimen.";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!CheckInputWithSpecimenID())
+            if (CheckInputWithSpecimenID())
             {
-                DAL.setDatabase(0);
+                DAL.setDatabase();
                 if (cbxBase.Checked == true)
                 {
                     fillInformationBaseWithSpecimenID();
@@ -200,6 +201,10 @@ namespace ISHS_SQL_Shortcut
                     addToDatabaseCycleAdditional();
                 }
                 rtbInformation.Text += "Images has been added to the Database for SpecimenID " + SpecimenID + ".\n";
+            }
+            else
+            {
+                rtbInformation.Text += "failed to add images to specimen.";
             }
         }
 
@@ -440,6 +445,7 @@ namespace ISHS_SQL_Shortcut
         {
             // for Specimen
             SpecimenID = int.Parse(tbxSpecimenNumber.Text);
+            CommonName = tbxCommonName.Text;
 
             // for MediaData
             MediaFilePath = tbxMediaPath.Text;

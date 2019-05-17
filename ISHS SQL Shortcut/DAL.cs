@@ -22,18 +22,10 @@ namespace ISHS_SQL_Shortcut
         {
         }
 
-        public static void setDatabase(int num)
+        public static void setDatabase()
         {
-            if(num == 1)
-            {
-                ReadOnlyConnectionString = "server=164.165.207.102;Database=ishs_textile;User ID=ISHSISUdbo;Password=The Museum Encountered Bengals!";
-                EditOnlyConnectionString = "server=164.165.207.102;Database=ishs_textile;User ID=ISHSISUdbo;Password=The Museum Encountered Bengals!";
-            }
-            else
-            {
-                ReadOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_reader;Password=9f#l1N4MDuE)";
-                EditOnlyConnectionString = "server=localhost;Database=ISHS_Dev;User ID=iusr_ishs_editor;Password=$s!kFB_e#ad6V";
-            }
+            ReadOnlyConnectionString = "server=164.165.207.102;Database=ishs_textile;User ID=ISHSISUdbo;Password=The Museum Encountered Bengals!";
+            EditOnlyConnectionString = "server=164.165.207.102;Database=ishs_textile;User ID=ISHSISUdbo;Password=The Museum Encountered Bengals!";
         }
 
         #region Media
