@@ -40,7 +40,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tbxRediscovRecordID = new System.Windows.Forms.TextBox();
-            this.btnNewSpecimen = new System.Windows.Forms.Button();
             this.tbxCategory = new System.Windows.Forms.TextBox();
             this.tbxSubCategory = new System.Windows.Forms.TextBox();
             this.tbxMaterial = new System.Windows.Forms.TextBox();
@@ -196,16 +195,6 @@
             this.tbxRediscovRecordID.Name = "tbxRediscovRecordID";
             this.tbxRediscovRecordID.Size = new System.Drawing.Size(100, 22);
             this.tbxRediscovRecordID.TabIndex = 8;
-            // 
-            // btnNewSpecimen
-            // 
-            this.btnNewSpecimen.Location = new System.Drawing.Point(18, 275);
-            this.btnNewSpecimen.Name = "btnNewSpecimen";
-            this.btnNewSpecimen.Size = new System.Drawing.Size(116, 22);
-            this.btnNewSpecimen.TabIndex = 11;
-            this.btnNewSpecimen.Text = "Add To Local";
-            this.btnNewSpecimen.UseVisualStyleBackColor = true;
-            this.btnNewSpecimen.Click += new System.EventHandler(this.btnNewSpecimen_Click);
             // 
             // tbxCategory
             // 
@@ -602,11 +591,11 @@
             // 
             // btnAddActual
             // 
-            this.btnAddActual.Location = new System.Drawing.Point(150, 275);
+            this.btnAddActual.Location = new System.Drawing.Point(18, 275);
             this.btnAddActual.Name = "btnAddActual";
-            this.btnAddActual.Size = new System.Drawing.Size(120, 22);
+            this.btnAddActual.Size = new System.Drawing.Size(217, 22);
             this.btnAddActual.TabIndex = 174;
-            this.btnAddActual.Text = "Add To Actual";
+            this.btnAddActual.Text = "Add New Specimen and Images";
             this.btnAddActual.UseVisualStyleBackColor = true;
             this.btnAddActual.Click += new System.EventHandler(this.btnAddActual_Click);
             // 
@@ -710,7 +699,6 @@
             this.Controls.Add(this.tbxMaterial);
             this.Controls.Add(this.tbxSubCategory);
             this.Controls.Add(this.tbxCategory);
-            this.Controls.Add(this.btnNewSpecimen);
             this.Controls.Add(this.tbxRediscovRecordID);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -745,7 +733,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbxRediscovRecordID;
-        private System.Windows.Forms.Button btnNewSpecimen;
         private System.Windows.Forms.TextBox tbxCategory;
         private System.Windows.Forms.TextBox tbxSubCategory;
         private System.Windows.Forms.TextBox tbxMaterial;

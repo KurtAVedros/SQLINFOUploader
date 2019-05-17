@@ -84,113 +84,123 @@ namespace ISHS_SQL_Shortcut
 
         //----------------------------------------Button Click------------------------------------------------------
 
+        /* Removed adding specimens to a local Database as it became a hassle to update the two databases.
         private void btnNewSpecimen_Click(object sender, EventArgs e)
         {
-            DAL.setDatabase(0);
-            if(cbxBase.Checked == true)
+            if(!CheckInput())
             {
-                fillInformationBase();
-                addToDatabaseCycleBase();
-            } 
-            if(cbxOne.Checked == true)
-            {
-                fillInformationOne();
-                addToDatabaseCycleAdditional();
+                DAL.setDatabase(0);
+                if (cbxBase.Checked == true)
+                {
+                    fillInformationBase();
+                    addToDatabaseCycleBase();
+                }
+                if (cbxOne.Checked == true)
+                {
+                    fillInformationOne();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxTwo.Checked == true)
+                {
+                    fillInformationTwo();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxThree.Checked == true)
+                {
+                    fillInformationThree();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxFour.Checked == true)
+                {
+                    fillInformationFour();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxFive.Checked == true)
+                {
+                    fillInformationFive();
+                    addToDatabaseCycleAdditional();
+                }
+                rtbInformation.Text += SpecimenID + " has been added to LOCAL.\n";
             }
-            if(cbxTwo.Checked == true)
-            {
-                fillInformationTwo();
-                addToDatabaseCycleAdditional();
-            }
-            if(cbxThree.Checked == true)
-            {
-                fillInformationThree();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxFour.Checked == true)
-            {
-                fillInformationFour();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxFive.Checked == true)
-            {
-                fillInformationFive();
-                addToDatabaseCycleAdditional();
-            }
-            rtbInformation.Text += SpecimenID + " has been added to LOCAL.\n";
         }
-
+        */
 
         private void btnAddActual_Click(object sender, EventArgs e)
         {
-            DAL.setDatabase(1);
-            if (cbxBase.Checked == true)
+            if (!CheckInput())
             {
-                fillInformationBase();
-                addToDatabaseCycleBase();
+                DAL.setDatabase(1);
+                if (cbxBase.Checked == true)
+                {
+                    fillInformationBase();
+                    addToDatabaseCycleBase();
+                }
+                if (cbxOne.Checked == true)
+                {
+                    fillInformationOne();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxTwo.Checked == true)
+                {
+                    fillInformationTwo();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxThree.Checked == true)
+                {
+                    fillInformationThree();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxFour.Checked == true)
+                {
+                    fillInformationFour();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxFive.Checked == true)
+                {
+                    fillInformationFive();
+                    addToDatabaseCycleAdditional();
+                }
+                rtbInformation.Text += SpecimenID + " has been added to the Database.\n";
             }
-            if (cbxOne.Checked == true)
-            {
-                fillInformationOne();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxTwo.Checked == true)
-            {
-                fillInformationTwo();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxThree.Checked == true)
-            {
-                fillInformationThree();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxFour.Checked == true)
-            {
-                fillInformationFour();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxFive.Checked == true)
-            {
-                fillInformationFive();
-                addToDatabaseCycleAdditional();
-            }
-            rtbInformation.Text += SpecimenID + " has been added to ACTUAL.\n";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DAL.setDatabase(0);
-            if (cbxBase.Checked == true)
+            if (!CheckInputWithSpecimenID())
             {
-                fillInformationBaseWithSpecimenID();
-                addToDatabaseCycleAdditional();
+                DAL.setDatabase(0);
+                if (cbxBase.Checked == true)
+                {
+                    fillInformationBaseWithSpecimenID();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxOne.Checked == true)
+                {
+                    fillInformationOne();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxTwo.Checked == true)
+                {
+                    fillInformationTwo();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxThree.Checked == true)
+                {
+                    fillInformationThree();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxFour.Checked == true)
+                {
+                    fillInformationFour();
+                    addToDatabaseCycleAdditional();
+                }
+                if (cbxFive.Checked == true)
+                {
+                    fillInformationFive();
+                    addToDatabaseCycleAdditional();
+                }
+                rtbInformation.Text += "Images has been added to the Database for SpecimenID " + SpecimenID + ".\n";
             }
-            if (cbxOne.Checked == true)
-            {
-                fillInformationOne();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxTwo.Checked == true)
-            {
-                fillInformationTwo();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxThree.Checked == true)
-            {
-                fillInformationThree();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxFour.Checked == true)
-            {
-                fillInformationFour();
-                addToDatabaseCycleAdditional();
-            }
-            if (cbxFive.Checked == true)
-            {
-                fillInformationFive();
-                addToDatabaseCycleAdditional();
-            }
-            rtbInformation.Text += SpecimenID + " has been added to LOCAL.\n";
         }
 
         private void btnClearInfo_Click(object sender, EventArgs e)
@@ -417,7 +427,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription.Text;
+            Description = CommonName + ": " + tbxDescription.Text;
             IsSpecimenShowcaseMedia = true;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -449,7 +459,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription.Text;
+            Description = CommonName + ": " + tbxDescription.Text;
             IsSpecimenShowcaseMedia = true;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -478,7 +488,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription1.Text;
+            Description = CommonName + ": " + tbxDescription1.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -507,7 +517,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription2.Text;
+            Description = CommonName + ": " + tbxDescription2.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -536,7 +546,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription3.Text;
+            Description = CommonName + ": " + tbxDescription3.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -565,7 +575,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription4.Text;
+            Description = CommonName + ": " + tbxDescription4.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -594,7 +604,7 @@ namespace ISHS_SQL_Shortcut
             System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
             ImageHeight = img.Height;
             ImageWidth = img.Width;
-            Description = tbxDescription5.Text;
+            Description = CommonName + ": " + tbxDescription5.Text;
             IsSpecimenShowcaseMedia = false;
             //MediaID = int.Parse(tbxNextMediaID.Text);
 
@@ -635,6 +645,405 @@ namespace ISHS_SQL_Shortcut
             cycleThroughImagePathAddingImages();
         }
 
+        //----------------------------------------Checks------------------------------------------------------
+        private bool CheckInput()
+        {
+            if (tbxAccessionNum.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for Accession Number.";
+                return false;
+            }
+            if (!checkCategory()) return false;
+            if (!checkSubCategory()) return false;
+            if (!checkCirca()) return false;
+            if (tbxRediscovRecordID.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for RediscovRecordID.";
+                return false;
+            }
+            if (cbxBase.Checked == true)
+            {
+                if (!checkBaseFile()) return false;
+                if (tbxCommonName.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Common Name.";
+                    return false;
+                }
+                if (tbxDescription.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Base Desciption.";
+                    return false;
+                }
+            }
+            if (cbxOne.Checked == true)
+            {
+                if (!checkOneFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption one.";
+                    return false;
+                }
+            }
+            if (cbxTwo.Checked == true)
+            {
+                if (!checkTwoFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Two.";
+                    return false;
+                }
+            }
+            if (cbxThree.Checked == true)
+            {
+                if (!checkThreeFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Three.";
+                    return false;
+                }
+            }
+            if (cbxFour.Checked == true)
+            {
+                if (!checkFourFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Four.";
+                    return false;
+                }
+            }
+            if (cbxFive.Checked == true)
+            {
+                if (!checkFiveFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Five.";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool CheckInputWithSpecimenID()
+        {
+            if (tbxSpecimenNumber.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for Specimen Number.";
+                return false;
+            }
+            if (cbxBase.Checked == true)
+            {
+                if (!checkBaseFile()) return false;
+                if (tbxCommonName.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Common Name.";
+                    return false;
+                }
+                if (tbxDescription.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Base Desciption.";
+                    return false;
+                }
+            }
+            if (cbxOne.Checked == true)
+            {
+                if (!checkOneFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption one.";
+                    return false;
+                }
+            }
+            if (cbxTwo.Checked == true)
+            {
+                if (!checkTwoFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Two.";
+                    return false;
+                }
+            }
+            if (cbxThree.Checked == true)
+            {
+                if (!checkThreeFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Three.";
+                    return false;
+                }
+            }
+            if (cbxFour.Checked == true)
+            {
+                if (!checkFourFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Four.";
+                    return false;
+                }
+            }
+            if (cbxFive.Checked == true)
+            {
+                if (!checkFiveFile()) return false;
+                if (tbxDescription1.Text == "")
+                {
+                    rtbInformation.Text = "Please enter information for Desciption Five.";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool checkBaseFile()
+        {
+            string file = tbxMediaPath.Text + "//" + tbxMediaName.Text + ".jpg";
+            if(!File.Exists(file))
+            {
+                rtbInformation.Text = "Base image file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "//Thumbnail//" + tbxMediaName.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Base image Thumbnail file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "\\Tiles\\" + tbxMediaName.Text + "_stitch_files\\0\\0_0.jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Base image Tiles file not found.";
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool checkOneFile()
+        {
+            string file = tbxMediaPath.Text + "//" + tbxMediaName1.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image One file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "//Thumbnail//" + tbxMediaName1.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image One Thumbnail file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "\\Tiles\\" + tbxMediaName1.Text + "_stitch_files\\0\\0_0.jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image One Tiles file not found.";
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool checkTwoFile()
+        {
+            string file = tbxMediaPath.Text + "//" + tbxMediaName2.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Two file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "//Thumbnail//" + tbxMediaName2.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Two Thumbnail file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "\\Tiles\\" + tbxMediaName2.Text + "_stitch_files\\0\\0_0.jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Two Tiles file not found.";
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool checkThreeFile()
+        {
+            string file = tbxMediaPath.Text + "//" + tbxMediaName3.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Three file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "//Thumbnail//" + tbxMediaName3.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Three Thumbnail file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "\\Tiles\\" + tbxMediaName3.Text + "_stitch_files\\0\\0_0.jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Three Tiles file not found.";
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool checkFourFile()
+        {
+            string file = tbxMediaPath.Text + "//" + tbxMediaName4.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Four file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "//Thumbnail//" + tbxMediaName4.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Four Thumbnail file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "\\Tiles\\" + tbxMediaName4.Text + "_stitch_files\\0\\0_0.jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Four Tiles file not found.";
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private bool checkFiveFile()
+        {
+            string file = tbxMediaPath.Text + "//" + tbxMediaName5.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Five file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "//Thumbnail//" + tbxMediaName5.Text + ".jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Five Thumbnail file not found.";
+                return false;
+            }
+            file = tbxMediaPath.Text + "\\Tiles\\" + tbxMediaName5.Text + "_stitch_files\\0\\0_0.jpg";
+            if (!File.Exists(file))
+            {
+                rtbInformation.Text = "Image Five Tiles file not found.";
+                return false;
+            }
+            else
+                return true;
+        }
+        
+
+        private bool checkCategory()
+        {
+            if (tbxCategory.Text == "Women's Garments") return true;
+            else if (tbxCategory.Text == "WG") return true;
+            else if (tbxCategory.Text == "Men's Garments") return true;
+            else if (tbxCategory.Text == "MG") return true;
+            else if (tbxCategory.Text == "Children's Garments") return true;
+            else if (tbxCategory.Text == "CG") return true;
+            else if (tbxCategory.Text == "Military Uniforms") return true;
+            else if (tbxCategory.Text == "MU") return true;
+            else if (tbxCategory.Text == "Men's Footwear") return true;
+            else if (tbxCategory.Text == "MF") return true;
+            else if (tbxCategory.Text == "Women's Footwear") return true;
+            else if (tbxCategory.Text == "WF") return true;
+            else if (tbxCategory.Text == "Personal Gear") return true;
+            else if (tbxCategory.Text == "PG") return true;
+            else if (tbxCategory.Text == "Wedding Dress") return true;
+            else if (tbxCategory.Text == "WD") return true;
+            else if (tbxCategory.Text == "Formalwear") return true;
+            else if (tbxCategory.Text == "FW") return true;
+            else if (tbxCategory.Text == "Hats") return true;
+            else if (tbxCategory.Text == "H") return true;
+            else if (tbxCategory.Text == "Military Uniform/Hat") return true;
+            else if (tbxCategory.Text == "MU/H") return true;
+            else if (tbxCategory.Text == "Purses") return true;
+            else if (tbxCategory.Text == "P") return true;
+            else if (tbxCategory.Text == "Daywear") return true;
+            else if (tbxCategory.Text == "DW") return true;
+            else if (tbxCategory.Text.ToLower() == "null") return true;
+            else
+            {
+                rtbInformation.Text = "Information entered in Category was not valid.";
+                return false;
+            }
+        }
+
+        private bool checkSubCategory()
+        {
+            if (tbxSubCategory.Text == "Women's Garments") return true;
+            else if (tbxSubCategory.Text == "WG") return true;
+            else if (tbxSubCategory.Text == "Men's Garments") return true;
+            else if (tbxSubCategory.Text == "MG") return true;
+            else if (tbxSubCategory.Text == "Children's Garments") return true;
+            else if (tbxSubCategory.Text == "CG") return true;
+            else if (tbxSubCategory.Text == "Military Uniforms") return true;
+            else if (tbxSubCategory.Text == "MU") return true;
+            else if (tbxSubCategory.Text == "Men's Footwear") return true;
+            else if (tbxSubCategory.Text == "MF") return true;
+            else if (tbxSubCategory.Text == "Women's Footwear") return true;
+            else if (tbxSubCategory.Text == "WF") return true;
+            else if (tbxSubCategory.Text == "Personal Gear") return true;
+            else if (tbxSubCategory.Text == "PG") return true;
+            else if (tbxSubCategory.Text == "Wedding Dress") return true;
+            else if (tbxSubCategory.Text == "WD") return true;
+            else if (tbxSubCategory.Text == "Formalwear") return true;
+            else if (tbxSubCategory.Text == "FW") return true;
+            else if (tbxSubCategory.Text == "Hats") return true;
+            else if (tbxSubCategory.Text == "H") return true;
+            else if (tbxSubCategory.Text == "Military Uniform/Hat") return true;
+            else if (tbxSubCategory.Text == "MU/H") return true;
+            else if (tbxSubCategory.Text == "Purses") return true;
+            else if (tbxSubCategory.Text == "P") return true;
+            else if (tbxSubCategory.Text == "Daywear") return true;
+            else if (tbxSubCategory.Text == "DW") return true;
+            else if (tbxSubCategory.Text.ToLower() == "null") return true;
+            else if (tbxSubCategory.Text == "") return true;
+            else
+            {
+                rtbInformation.Text = "Information entered in SubCategory was not valid.";
+                return false;
+            }
+        }
+
+        private bool checkCirca()
+        {
+            string number = tbxCirca.Text;
+            if (number == "1870") return true;
+            else if (number == "1910") return true;
+            else if (number == "1880") return true;
+            else if (number == "1940") return true;
+            else if (number == "1920") return true;
+            else if (number == "1890") return true;
+            else if (number == "1900") return true;
+            else if (number == "1980") return true;
+            else if (number == "1960") return true;
+            else if (number == "1970") return true;
+            else if (number == "1950") return true;
+            else if (number == "1830") return true;
+            else if (number == "Unknown") return true;
+            else if (number == "1930") return true;
+            else if (number == "1850") return true;
+            else if (number == "1860") return true;
+            else if (number == "1990") return true;
+            else if (number == "1840") return true;
+            else if (number == "Currentlyon Exhibit") return true;
+            else if (number == "2000") return true;
+            else if (number == "2010") return true;
+            else if (number == "1820") return true;
+            else if (number == "1810") return true;
+            else if (number == "1800") return true;
+            else if (number == "Pre-1800") return true;
+            else
+            {
+                rtbInformation.Text = "Information entered in Circa was not valid.";
+                return false;
+            }
+        }
 
         //----------------------------------------Other Methods------------------------------------------------------
         private void setNextImageTileDataID()
@@ -755,7 +1164,7 @@ namespace ISHS_SQL_Shortcut
             else if (number == "1800")
             { CollectionID = 28; }
             else if (number == "Pre-1800")
-            { CollectionID = 29; }
+            { CollectionID = 28; }
             else
             { number = "ERROR"; }
         }
