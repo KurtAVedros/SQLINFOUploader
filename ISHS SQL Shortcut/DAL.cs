@@ -178,7 +178,7 @@ namespace ISHS_SQL_Shortcut
         #region Specimen
 
         public static int SpecimenAdd(int SpecimenID, string AccessionNumber, int CategoryID, int SubCategoryID,
-            string Circa, int CollectionID, bool IsOnExhibit, int RediscovryID)
+            string Circa, int CollectionID, bool IsOnExhibit, int RediscovryID, string CommonName)
         {
             int retInt = -1;
 
@@ -201,6 +201,7 @@ namespace ISHS_SQL_Shortcut
                 else
                     comm.Parameters.AddWithValue("@RediscovRecordID", RediscovryID);
                 comm.Parameters.AddWithValue("@IsOnExhibit", IsOnExhibit);
+                comm.Parameters.AddWithValue("@CommonName", CommonName);
 
                 SqlParameter retParameter;
                 retParameter = new SqlParameter("@SpecimenID", System.Data.SqlDbType.Int);

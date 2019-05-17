@@ -35,6 +35,7 @@ namespace ISHS_SQL_Shortcut
         bool IsOnExhibit = false;
         int SpecimenID = 0;
         byte[] data = null;
+        string CommonName = "";
 
         // variables for step 2
         string MediaFilePath = "";
@@ -154,6 +155,42 @@ namespace ISHS_SQL_Shortcut
                 addToDatabaseCycleAdditional();
             }
             rtbInformation.Text += SpecimenID + " has been added to ACTUAL.\n";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DAL.setDatabase(0);
+            if (cbxBase.Checked == true)
+            {
+                fillInformationBaseWithSpecimenID();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxOne.Checked == true)
+            {
+                fillInformationOne();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxTwo.Checked == true)
+            {
+                fillInformationTwo();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxThree.Checked == true)
+            {
+                fillInformationThree();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxFour.Checked == true)
+            {
+                fillInformationFour();
+                addToDatabaseCycleAdditional();
+            }
+            if (cbxFive.Checked == true)
+            {
+                fillInformationFive();
+                addToDatabaseCycleAdditional();
+            }
+            rtbInformation.Text += SpecimenID + " has been added to LOCAL.\n";
         }
 
         private void btnClearInfo_Click(object sender, EventArgs e)
@@ -359,7 +396,40 @@ namespace ISHS_SQL_Shortcut
             setCollection(Circa);
             RediscovRecordID = tbxRediscovRecordID.Text;
             setIsOnExhibit();
+            CommonName = tbxCommonName.Text;
             //SpecimenID = int.Parse(tbxSpecimenID.Text);
+
+            // for MediaData
+            MediaFilePath = tbxMediaPath.Text;
+            MediaFileName = tbxMediaName.Text;
+            //  MediaFileEnding = "jpg";
+            //MediaDataID = int.Parse(tbxNextMediaDataID.Text);
+
+            // for ThumbnailData
+            ThumbnailFilePath = tbxMediaPath.Text + "\\Thumbnail";
+            ThumbnailFileName = tbxMediaName.Text;
+            //  ThumbnailFileEnding = "jpg";
+            //ThumbnailDataID = int.Parse(tbxNextMediaDataID.Text) + 1;
+
+            // for Media
+            //  MimeType = "image/jpeg";
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
+            Description = tbxDescription.Text;
+            IsSpecimenShowcaseMedia = true;
+            //MediaID = int.Parse(tbxNextMediaID.Text);
+
+            TileFilePath = tbxMediaPath.Text + "\\Tiles\\" + MediaFileName + "_stitch_files";
+            //TileFileName = tbxTileName.Text;
+            //  TileFileEnding = "jpg";
+        }
+
+        private void fillInformationBaseWithSpecimenID()
+        {
+            // for Specimen
+            SpecimenID = int.Parse(tbxSpecimenNumber.Text);
 
             // for MediaData
             MediaFilePath = tbxMediaPath.Text;
@@ -540,7 +610,7 @@ namespace ISHS_SQL_Shortcut
             if (SubCategoryID != "NULL")
                 SubCategoryNum = int.Parse(SubCategoryID);
             SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), SubCategoryNum, Circa,
-                CollectionID, IsOnExhibit, int.Parse(RediscovRecordID));
+                CollectionID, IsOnExhibit, int.Parse(RediscovRecordID), CommonName);
             string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
             data = System.IO.File.ReadAllBytes(DataMedia);
             MediaDataID = DAL.MediaDataAdd(0, data);
