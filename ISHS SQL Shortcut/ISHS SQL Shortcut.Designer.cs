@@ -91,6 +91,19 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tbxSpecimenNumber = new System.Windows.Forms.TextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.tbnNew3DModel = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbxURL = new System.Windows.Forms.TextBox();
+            this.tbxHTML = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbx3DCommonName = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbx3DThumbnail = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tbx3DThumbnailPath = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -593,7 +606,7 @@
             // 
             this.btnAddActual.Location = new System.Drawing.Point(18, 275);
             this.btnAddActual.Name = "btnAddActual";
-            this.btnAddActual.Size = new System.Drawing.Size(217, 22);
+            this.btnAddActual.Size = new System.Drawing.Size(219, 22);
             this.btnAddActual.TabIndex = 174;
             this.btnAddActual.Text = "Add New Specimen and Images";
             this.btnAddActual.UseVisualStyleBackColor = true;
@@ -642,12 +655,137 @@
             this.tbxSpecimenNumber.Size = new System.Drawing.Size(100, 22);
             this.tbxSpecimenNumber.TabIndex = 179;
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.richTextBox2.Enabled = false;
+            this.richTextBox2.Location = new System.Drawing.Point(801, 3);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(10, 741);
+            this.richTextBox2.TabIndex = 180;
+            this.richTextBox2.Text = "";
+            // 
+            // tbnNew3DModel
+            // 
+            this.tbnNew3DModel.Location = new System.Drawing.Point(819, 216);
+            this.tbnNew3DModel.Name = "tbnNew3DModel";
+            this.tbnNew3DModel.Size = new System.Drawing.Size(219, 22);
+            this.tbnNew3DModel.TabIndex = 181;
+            this.tbnNew3DModel.Text = "Add New 3D Model";
+            this.tbnNew3DModel.UseVisualStyleBackColor = true;
+            this.tbnNew3DModel.Click += new System.EventHandler(this.tbnNew3DModel_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(819, 160);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(36, 17);
+            this.label17.TabIndex = 182;
+            this.label17.Text = "URL";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label20.Location = new System.Drawing.Point(817, 13);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(281, 25);
+            this.label20.TabIndex = 183;
+            this.label20.Text = "3D Model, Uses Specimen Info";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(819, 188);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(46, 17);
+            this.label22.TabIndex = 184;
+            this.label22.Text = "HTML";
+            // 
+            // tbxURL
+            // 
+            this.tbxURL.Location = new System.Drawing.Point(871, 160);
+            this.tbxURL.Name = "tbxURL";
+            this.tbxURL.Size = new System.Drawing.Size(408, 22);
+            this.tbxURL.TabIndex = 185;
+            // 
+            // tbxHTML
+            // 
+            this.tbxHTML.Location = new System.Drawing.Point(871, 188);
+            this.tbxHTML.Name = "tbxHTML";
+            this.tbxHTML.Size = new System.Drawing.Size(408, 22);
+            this.tbxHTML.TabIndex = 186;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(817, 47);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(100, 17);
+            this.label23.TabIndex = 189;
+            this.label23.Text = "CommonName";
+            // 
+            // tbx3DCommonName
+            // 
+            this.tbx3DCommonName.Location = new System.Drawing.Point(923, 47);
+            this.tbx3DCommonName.Name = "tbx3DCommonName";
+            this.tbx3DCommonName.Size = new System.Drawing.Size(260, 22);
+            this.tbx3DCommonName.TabIndex = 190;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label24.Location = new System.Drawing.Point(819, 105);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(115, 17);
+            this.label24.TabIndex = 191;
+            this.label24.Text = "Thumbnail Name";
+            // 
+            // tbx3DThumbnail
+            // 
+            this.tbx3DThumbnail.Location = new System.Drawing.Point(871, 127);
+            this.tbx3DThumbnail.Name = "tbx3DThumbnail";
+            this.tbx3DThumbnail.Size = new System.Drawing.Size(408, 22);
+            this.tbx3DThumbnail.TabIndex = 192;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(819, 73);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(107, 17);
+            this.label26.TabIndex = 193;
+            this.label26.Text = "Thumbnail Path";
+            // 
+            // tbx3DThumbnailPath
+            // 
+            this.tbx3DThumbnailPath.Location = new System.Drawing.Point(923, 75);
+            this.tbx3DThumbnailPath.Name = "tbx3DThumbnailPath";
+            this.tbx3DThumbnailPath.Size = new System.Drawing.Size(260, 22);
+            this.tbx3DThumbnailPath.TabIndex = 194;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(812, 749);
+            this.ClientSize = new System.Drawing.Size(1289, 749);
+            this.Controls.Add(this.tbx3DThumbnailPath);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.tbx3DThumbnail);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.tbx3DCommonName);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.tbxHTML);
+            this.Controls.Add(this.tbxURL);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.tbnNew3DModel);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.tbxSpecimenNumber);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
@@ -784,6 +922,19 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbxSpecimenNumber;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button tbnNew3DModel;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox tbxURL;
+        private System.Windows.Forms.TextBox tbxHTML;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox tbx3DCommonName;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tbx3DThumbnail;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox tbx3DThumbnailPath;
     }
 }
 

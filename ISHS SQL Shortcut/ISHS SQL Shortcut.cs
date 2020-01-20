@@ -69,6 +69,11 @@ namespace ISHS_SQL_Shortcut
         //int Step8CurrentSetTileFileID = 0;
         int Step8ImageTileDataID = 0;
 
+        // Variables for 3D Model
+        string Thumbnail3DFile = "";
+        string URL = "";
+        string HTML = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -121,6 +126,32 @@ namespace ISHS_SQL_Shortcut
             }
         }
         */
+        private void tbnNew3DModel_Click(object sender, EventArgs e)
+        {
+            if(Check3DInput())
+            {
+                fillInformationNew3D();
+                DAL.setDatabase();
+                int SubCategoryNum = 0;
+                if (SubCategoryID != "NULL")
+                    SubCategoryNum = int.Parse(SubCategoryID);
+                SpecimenID = DAL.SpecimenAdd(0, AccessionNumber, int.Parse(CategoryID), SubCategoryNum, Circa, CollectionID, IsOnExhibit, int.Parse(RediscovRecordID), CommonName);
+
+                string DataMedia = MediaFilePath + "\\" + MediaFileName + "." + MediaFileEnding;
+                data = System.IO.File.ReadAllBytes(DataMedia);
+                MediaDataID = DAL.MediaDataAdd(0, data);
+                //string DataThumbnail = ThumbnailFilePath + "\\" + ThumbnailFileName + "." + ThumbnailFileEnding;
+                //data = System.IO.File.ReadAllBytes(DataThumbnail);
+                ThumbnailDataID = MediaDataID;
+                IsSpecimenShowcaseMedia = true;
+                MediaID = DAL.MediaAdd(SpecimenID, MediaFileName + "." + MediaFileEnding, MediaFileEnding, MimeType, MediaDataID, ThumbnailDataID, ImageHeight, ImageWidth, Description, IsSpecimenShowcaseMedia);
+
+                DAL.Model3DAdd(SpecimenID, URL, HTML);
+
+                rtbInformation.Text += SpecimenID + " has been added to the Database.\n";
+            }
+        }
+
 
         private void btnAddActual_Click(object sender, EventArgs e)
         {
@@ -441,6 +472,44 @@ namespace ISHS_SQL_Shortcut
             //  TileFileEnding = "jpg";
         }
 
+        private void fillInformationNew3D()
+        {
+            // for Specimen
+            AccessionNumber = tbxAccessionNum.Text;
+            setCategory();
+            setSubCategory();
+            Circa = tbxCirca.Text;
+            MaterialID = "NULL";
+            SecondaryMaterialID = "NULL";
+            setCollection("3D");
+            RediscovRecordID = tbxRediscovRecordID.Text;
+            setIsOnExhibit();
+            CommonName = tbx3DCommonName.Text;
+
+            // For 3D Model
+            MediaFileName = tbx3DThumbnail.Text;
+            MediaFilePath = tbx3DThumbnailPath.Text;
+
+            ThumbnailFileName = tbx3DThumbnail.Text;
+            ThumbnailFilePath = tbx3DThumbnailPath.Text;
+
+            string file = MediaFilePath + "//" + MediaFileName + "." + MediaFileEnding;
+            System.Drawing.Image img = System.Drawing.Image.FromFile(@file);
+            ImageHeight = img.Height;
+            ImageWidth = img.Width;
+
+            URL = tbxURL.Text;
+            HTML = tbxHTML.Text;
+        }
+
+        private void fillInformation3DModify()
+        {
+            // For 3D Model
+            Thumbnail3DFile = tbx3DThumbnail.Text;
+            URL = tbxURL.Text;
+            HTML = tbxHTML.Text;
+        }
+
         private void fillInformationBaseWithSpecimenID()
         {
             // for Specimen
@@ -725,6 +794,53 @@ namespace ISHS_SQL_Shortcut
                     rtbInformation.Text = "Please enter information for Desciption Five.";
                     return false;
                 }
+            }
+            return true;
+        }
+
+        private bool Check3DInput()
+        {
+            if (tbxAccessionNum.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for Accession Number.";
+                return false;
+            }
+            if (!checkCategory()) return false;
+            if (!checkSubCategory()) return false;
+            if (!checkCirca()) return false;
+            if (tbxRediscovRecordID.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for RediscovRecordID.";
+                return false;
+            }
+            if (tbx3DThumbnail.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for Thumbnail under 3D Model.";
+                return false;
+            }
+            if (tbx3DThumbnail.Text != "")
+            {
+                string file = tbx3DThumbnailPath.Text + "//" + tbx3DThumbnail.Text + ".jpg"; ;
+                if (!File.Exists(file))
+                {
+                    rtbInformation.Text = "Thumbnail file not found for 3D Model. " + file;
+                    return false;
+                }
+            }
+            if (tbx3DCommonName.Text == "")
+            {
+                rtbInformation.Text = "Please enter information for Common Name under 3D Model.";
+                return false;
+            }
+            if (tbxURL.Text == "" && tbxHTML.Text == "")
+            {
+                rtbInformation.Text = "Please enter a URL or HTML Code for 3D Model.";
+                return false;
+            }
+            if (tbxURL.Text != "" && tbxHTML.Text != "")
+            {
+                rtbInformation.Text = "Please enter a information for either URL or HTML Code for 3D Model. Not for both.";
+                return false;
             }
             return true;
         }
@@ -1171,6 +1287,8 @@ namespace ISHS_SQL_Shortcut
             { CollectionID = 28; }
             else if (number == "Pre-1800")
             { CollectionID = 28; }
+            else if (number == "3D")
+            { CollectionID = 30; }
             else
             { number = "ERROR"; }
         }
@@ -1414,5 +1532,7 @@ namespace ISHS_SQL_Shortcut
                     cbxFour.Checked = true;
             }
         }
+
+
     }
 }

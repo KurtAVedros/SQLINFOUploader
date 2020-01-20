@@ -167,6 +167,53 @@ namespace ISHS_SQL_Shortcut
         }
         #endregion
 
+        #region 3DModel
+        public static void Model3DAdd(int SpecimenID, string URL, string HTML)
+        {
+            SqlCommand comm = new SqlCommand();
+            try
+            {
+                comm.CommandText = "sproc_ExternalMediaAdd";
+                comm.Parameters.AddWithValue("@SpecimenID", SpecimenID);
+                if(URL == "")
+                {
+                    comm.Parameters.AddWithValue("@URL", DBNull.Value);
+                }
+                else
+                {
+                    comm.Parameters.AddWithValue("@URL", URL);
+                }
+                if(HTML == "")
+                {
+                    comm.Parameters.AddWithValue("@HTML", DBNull.Value);
+                }
+                else
+                {
+                    comm.Parameters.AddWithValue("@HTML", HTML);
+                }
+
+                comm.Connection = new SqlConnection(EditOnlyConnectionString);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Connection.Open();
+
+                int rowsAffected = comm.ExecuteNonQuery();
+                if (rowsAffected != 1)
+                {
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+            finally
+            {
+                if (comm.Connection != null)
+                    comm.Connection.Close();
+            }
+        }
+        #endregion
+
         #region Specimen
 
         public static int SpecimenAdd(int SpecimenID, string AccessionNumber, int CategoryID, int SubCategoryID,
